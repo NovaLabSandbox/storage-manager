@@ -13,10 +13,10 @@ using StorageManager.Infrastructure.Interfaces;
 namespace StorageManager.Application.CQRS.CommandHandlers
 {
     public class CreateSiteCommandHandler(ISiteRepository _siteRepository, IMapper _mapper, ICacheService _cacheService)
-        : IRequestHandler<CreateSiteCommand, OneOf<CreatedResult<Site>, NotFoundResult, ForbiddenResult, BusinessErrorResult>>
+        : IRequestHandler<CreateSiteCommand, OneOf<CreatedResult<SiteResponse>, NotFoundResult, ForbiddenResult, BusinessErrorResult>>
     {
 
-        public async Task<OneOf<CreatedResult<Site>, NotFoundResult, ForbiddenResult, BusinessErrorResult>> Handle(CreateSiteCommand request, CancellationToken cancellationToken)
+        public async Task<OneOf<CreatedResult<SiteResponse>, NotFoundResult, ForbiddenResult, BusinessErrorResult>> Handle(CreateSiteCommand request, CancellationToken cancellationToken)
         {
             if (!UserHasPermissionToCreateSite())
             {
@@ -36,7 +36,7 @@ namespace StorageManager.Application.CQRS.CommandHandlers
                 await _cacheService.ClearAllSiteKey();
             }
 
-            return new CreatedResult<Site>() { Data = _mapper.Map<Site>(site), EntityPath = nameof(Site), Id = site.Id };
+            return new CreatedResult<SiteResponse>() { Data = _mapper.Map<SiteResponse>(site), EntityPath = nameof(SiteResponse), Id = site.Id };
         }
 
         private bool UserHasPermissionToCreateSite()

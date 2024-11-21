@@ -30,7 +30,7 @@ namespace StorageManager.Client.Contracts
         /// </summary>
         /// <returns>Successfully retrieved all sites</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Site>> GetAllSitesAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<SiteResponse>> GetAllSitesAsync();
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -38,14 +38,14 @@ namespace StorageManager.Client.Contracts
         /// </summary>
         /// <returns>Successfully retrieved all sites</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Site>> GetAllSitesAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<SiteResponse>> GetAllSitesAsync(System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Create a new site
         /// </summary>
         /// <returns>Site successfully created</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Site> CreateSiteAsync(SiteCreateRequest body);
+        System.Threading.Tasks.Task<SiteResponse> CreateSiteAsync(SiteCreateRequest body);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -53,7 +53,7 @@ namespace StorageManager.Client.Contracts
         /// </summary>
         /// <returns>Site successfully created</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Site> CreateSiteAsync(SiteCreateRequest body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<SiteResponse> CreateSiteAsync(SiteCreateRequest body, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Get a single site by ID
@@ -61,7 +61,7 @@ namespace StorageManager.Client.Contracts
         /// <param name="siteId">The ID of the site</param>
         /// <returns>Successfully retrieved site</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Site> GetSiteByIdAsync(string siteId);
+        System.Threading.Tasks.Task<SiteResponse> GetSiteByIdAsync(string siteId);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -70,7 +70,7 @@ namespace StorageManager.Client.Contracts
         /// <param name="siteId">The ID of the site</param>
         /// <returns>Successfully retrieved site</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Site> GetSiteByIdAsync(string siteId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<SiteResponse> GetSiteByIdAsync(string siteId, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Update an existing site
@@ -78,7 +78,7 @@ namespace StorageManager.Client.Contracts
         /// <param name="siteId">The ID of the site to update</param>
         /// <returns>Successfully updated site</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Site> UpdateSiteAsync(string siteId, SiteUpdateRequest body);
+        System.Threading.Tasks.Task<SiteResponse> UpdateSiteAsync(string siteId, SiteUpdateRequest body);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -87,7 +87,7 @@ namespace StorageManager.Client.Contracts
         /// <param name="siteId">The ID of the site to update</param>
         /// <returns>Successfully updated site</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Site> UpdateSiteAsync(string siteId, SiteUpdateRequest body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<SiteResponse> UpdateSiteAsync(string siteId, SiteUpdateRequest body, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Delete a site by ID
@@ -111,7 +111,7 @@ namespace StorageManager.Client.Contracts
         /// </summary>
         /// <returns>A list of devices in the site</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Device>> GetAllDevicesAsync(string siteId);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<DeviceResponse>> GetAllDevicesAsync(string siteId);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -119,14 +119,14 @@ namespace StorageManager.Client.Contracts
         /// </summary>
         /// <returns>A list of devices in the site</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Device>> GetAllDevicesAsync(string siteId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<DeviceResponse>> GetAllDevicesAsync(string siteId, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Create a new device in the site
         /// </summary>
         /// <returns>Device created successfully</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Device> CreateDeviceAsync(string siteId, CreateDeviceRequest body);
+        System.Threading.Tasks.Task<DeviceResponse> CreateDeviceAsync(string siteId, CreateDeviceRequest body);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -134,14 +134,14 @@ namespace StorageManager.Client.Contracts
         /// </summary>
         /// <returns>Device created successfully</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Device> CreateDeviceAsync(string siteId, CreateDeviceRequest body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<DeviceResponse> CreateDeviceAsync(string siteId, CreateDeviceRequest body, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Get details of a specific device in a site
         /// </summary>
         /// <returns>Device details</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Device> GetDeviceByIdAsync(string siteId, string deviceId);
+        System.Threading.Tasks.Task<DeviceResponse> GetDeviceByIdAsync(string siteId, string deviceId);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -149,14 +149,14 @@ namespace StorageManager.Client.Contracts
         /// </summary>
         /// <returns>Device details</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Device> GetDeviceByIdAsync(string siteId, string deviceId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<DeviceResponse> GetDeviceByIdAsync(string siteId, string deviceId, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Update a device in the site
         /// </summary>
         /// <returns>Device updated successfully</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Device> UpdateDeviceAsync(string siteId, string deviceId, UpdateDeviceRequest body);
+        System.Threading.Tasks.Task<DeviceResponse> UpdateDeviceAsync(string siteId, string deviceId, UpdateDeviceRequest body);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -164,7 +164,7 @@ namespace StorageManager.Client.Contracts
         /// </summary>
         /// <returns>Device updated successfully</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Device> UpdateDeviceAsync(string siteId, string deviceId, UpdateDeviceRequest body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<DeviceResponse> UpdateDeviceAsync(string siteId, string deviceId, UpdateDeviceRequest body, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Delete a device from the site
@@ -191,7 +191,7 @@ namespace StorageManager.Client.Contracts
         /// </summary>
         /// <returns>A list of areas in the site</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Area>> GetAllAreasAsync(string siteId);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AreaResponse>> GetAllAreasAsync(string siteId);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -199,14 +199,14 @@ namespace StorageManager.Client.Contracts
         /// </summary>
         /// <returns>A list of areas in the site</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Area>> GetAllAreasAsync(string siteId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AreaResponse>> GetAllAreasAsync(string siteId, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Create a new area in the site
         /// </summary>
         /// <returns>Area created successfully</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Area> CreateAreaAsync(string siteId, CreateAreaRequest body);
+        System.Threading.Tasks.Task<AreaResponse> CreateAreaAsync(string siteId, CreateAreaRequest body);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -214,14 +214,14 @@ namespace StorageManager.Client.Contracts
         /// </summary>
         /// <returns>Area created successfully</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Area> CreateAreaAsync(string siteId, CreateAreaRequest body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<AreaResponse> CreateAreaAsync(string siteId, CreateAreaRequest body, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Get details of a specific area in a site
         /// </summary>
         /// <returns>Area details</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Area> GetAreaByIdAsync(string siteId, string areaId);
+        System.Threading.Tasks.Task<AreaResponse> GetAreaByIdAsync(string siteId, string areaId);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -229,14 +229,14 @@ namespace StorageManager.Client.Contracts
         /// </summary>
         /// <returns>Area details</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Area> GetAreaByIdAsync(string siteId, string areaId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<AreaResponse> GetAreaByIdAsync(string siteId, string areaId, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Update an area in the site
         /// </summary>
         /// <returns>Area updated successfully</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Area> UpdateAreaAsync(string siteId, string areaId, UpdateAreaRequest body);
+        System.Threading.Tasks.Task<AreaResponse> UpdateAreaAsync(string siteId, string areaId, UpdateAreaRequest body);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -244,7 +244,7 @@ namespace StorageManager.Client.Contracts
         /// </summary>
         /// <returns>Area updated successfully</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Area> UpdateAreaAsync(string siteId, string areaId, UpdateAreaRequest body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<AreaResponse> UpdateAreaAsync(string siteId, string areaId, UpdateAreaRequest body, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Delete an area from the site
@@ -266,7 +266,7 @@ namespace StorageManager.Client.Contracts
         /// </summary>
         /// <returns>A list of devices in the area</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Device>> GetAllDevicesInAreaAsync(string siteId, string areaId);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<DeviceResponse>> GetAllDevicesInAreaAsync(string siteId, string areaId);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -274,14 +274,14 @@ namespace StorageManager.Client.Contracts
         /// </summary>
         /// <returns>A list of devices in the area</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Device>> GetAllDevicesInAreaAsync(string siteId, string areaId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<DeviceResponse>> GetAllDevicesInAreaAsync(string siteId, string areaId, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Create a new device in the area
         /// </summary>
         /// <returns>Device created successfully</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Device> CreateDeviceInAreaAsync(string siteId, string areaId, CreateDeviceRequest body);
+        System.Threading.Tasks.Task<DeviceResponse> CreateDeviceInAreaAsync(string siteId, string areaId, CreateDeviceRequest body);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -289,14 +289,14 @@ namespace StorageManager.Client.Contracts
         /// </summary>
         /// <returns>Device created successfully</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Device> CreateDeviceInAreaAsync(string siteId, string areaId, CreateDeviceRequest body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<DeviceResponse> CreateDeviceInAreaAsync(string siteId, string areaId, CreateDeviceRequest body, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Get details of a specific device in an area
         /// </summary>
         /// <returns>Device details</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Device> GetDeviceByIdInAreaAsync(string siteId, string areaId, string deviceId);
+        System.Threading.Tasks.Task<DeviceResponse> GetDeviceByIdInAreaAsync(string siteId, string areaId, string deviceId);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -304,14 +304,14 @@ namespace StorageManager.Client.Contracts
         /// </summary>
         /// <returns>Device details</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Device> GetDeviceByIdInAreaAsync(string siteId, string areaId, string deviceId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<DeviceResponse> GetDeviceByIdInAreaAsync(string siteId, string areaId, string deviceId, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Update a device in the area
         /// </summary>
         /// <returns>Device updated successfully</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Device> UpdateDeviceInAreaAsync(string siteId, string areaId, string deviceId, UpdateDeviceRequest body);
+        System.Threading.Tasks.Task<DeviceResponse> UpdateDeviceInAreaAsync(string siteId, string areaId, string deviceId, UpdateDeviceRequest body);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -319,7 +319,7 @@ namespace StorageManager.Client.Contracts
         /// </summary>
         /// <returns>Device updated successfully</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Device> UpdateDeviceInAreaAsync(string siteId, string areaId, string deviceId, UpdateDeviceRequest body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<DeviceResponse> UpdateDeviceInAreaAsync(string siteId, string areaId, string deviceId, UpdateDeviceRequest body, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Delete a device from the area
@@ -346,7 +346,7 @@ namespace StorageManager.Client.Contracts
         /// </summary>
         /// <returns>A list of modules in the area</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Module>> GetAllModulesAsync(string siteId, string areaId);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ModuleResponse>> GetAllModulesAsync(string siteId, string areaId);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -354,14 +354,14 @@ namespace StorageManager.Client.Contracts
         /// </summary>
         /// <returns>A list of modules in the area</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Module>> GetAllModulesAsync(string siteId, string areaId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ModuleResponse>> GetAllModulesAsync(string siteId, string areaId, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Create a new module in the area
         /// </summary>
         /// <returns>Module created successfully</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Module> CreateModuleAsync(string siteId, string areaId, CreateModuleRequest body);
+        System.Threading.Tasks.Task<ModuleResponse> CreateModuleAsync(string siteId, string areaId, CreateModuleRequest body);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -369,14 +369,14 @@ namespace StorageManager.Client.Contracts
         /// </summary>
         /// <returns>Module created successfully</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Module> CreateModuleAsync(string siteId, string areaId, CreateModuleRequest body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<ModuleResponse> CreateModuleAsync(string siteId, string areaId, CreateModuleRequest body, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Get details of a specific module in an area
         /// </summary>
         /// <returns>Module details</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Module> GetModuleByIdAsync(string siteId, string areaId, string moduleId);
+        System.Threading.Tasks.Task<ModuleResponse> GetModuleByIdAsync(string siteId, string areaId, string moduleId);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -384,14 +384,14 @@ namespace StorageManager.Client.Contracts
         /// </summary>
         /// <returns>Module details</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Module> GetModuleByIdAsync(string siteId, string areaId, string moduleId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<ModuleResponse> GetModuleByIdAsync(string siteId, string areaId, string moduleId, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Update a module in the area
         /// </summary>
         /// <returns>Module updated successfully</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Module> UpdateModuleAsync(string siteId, string areaId, string moduleId, UpdateModuleRequest body);
+        System.Threading.Tasks.Task<ModuleResponse> UpdateModuleAsync(string siteId, string areaId, string moduleId, UpdateModuleRequest body);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -399,7 +399,7 @@ namespace StorageManager.Client.Contracts
         /// </summary>
         /// <returns>Module updated successfully</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Module> UpdateModuleAsync(string siteId, string areaId, string moduleId, UpdateModuleRequest body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<ModuleResponse> UpdateModuleAsync(string siteId, string areaId, string moduleId, UpdateModuleRequest body, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Delete a module from the area
@@ -421,7 +421,7 @@ namespace StorageManager.Client.Contracts
         /// </summary>
         /// <returns>A list of devices in the module</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Device>> Module_GetAllDevicesAsync(string siteId, string areaId, string moduleId);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<DeviceResponse>> Module_GetAllDevicesAsync(string siteId, string areaId, string moduleId);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -429,14 +429,14 @@ namespace StorageManager.Client.Contracts
         /// </summary>
         /// <returns>A list of devices in the module</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Device>> Module_GetAllDevicesAsync(string siteId, string areaId, string moduleId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<DeviceResponse>> Module_GetAllDevicesAsync(string siteId, string areaId, string moduleId, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Create a new device in a module
         /// </summary>
         /// <returns>Device created successfully</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Device> Module_CreateDeviceAsync(string siteId, string areaId, string moduleId, CreateDeviceRequest body);
+        System.Threading.Tasks.Task<DeviceResponse> Module_CreateDeviceAsync(string siteId, string areaId, string moduleId, CreateDeviceRequest body);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -444,14 +444,14 @@ namespace StorageManager.Client.Contracts
         /// </summary>
         /// <returns>Device created successfully</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Device> Module_CreateDeviceAsync(string siteId, string areaId, string moduleId, CreateDeviceRequest body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<DeviceResponse> Module_CreateDeviceAsync(string siteId, string areaId, string moduleId, CreateDeviceRequest body, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Get details of a specific device in a module
         /// </summary>
         /// <returns>Details of the device</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Device> Module_GetDeviceAsync(string siteId, string areaId, string moduleId, string deviceId);
+        System.Threading.Tasks.Task<DeviceResponse> Module_GetDeviceAsync(string siteId, string areaId, string moduleId, string deviceId);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -459,14 +459,14 @@ namespace StorageManager.Client.Contracts
         /// </summary>
         /// <returns>Details of the device</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Device> Module_GetDeviceAsync(string siteId, string areaId, string moduleId, string deviceId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<DeviceResponse> Module_GetDeviceAsync(string siteId, string areaId, string moduleId, string deviceId, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Update a device in a module
         /// </summary>
         /// <returns>Device updated successfully</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Device> Module_UpdateDeviceAsync(string siteId, string areaId, string moduleId, string deviceId, UpdateDeviceRequest body);
+        System.Threading.Tasks.Task<DeviceResponse> Module_UpdateDeviceAsync(string siteId, string areaId, string moduleId, string deviceId, UpdateDeviceRequest body);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -474,7 +474,7 @@ namespace StorageManager.Client.Contracts
         /// </summary>
         /// <returns>Device updated successfully</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Device> Module_UpdateDeviceAsync(string siteId, string areaId, string moduleId, string deviceId, UpdateDeviceRequest body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<DeviceResponse> Module_UpdateDeviceAsync(string siteId, string areaId, string moduleId, string deviceId, UpdateDeviceRequest body, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Delete a device in a module
@@ -501,7 +501,7 @@ namespace StorageManager.Client.Contracts
         /// </summary>
         /// <returns>List of all devices</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Device>> Device_GetAllAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<DeviceResponse>> Device_GetAllAsync();
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -509,14 +509,14 @@ namespace StorageManager.Client.Contracts
         /// </summary>
         /// <returns>List of all devices</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Device>> Device_GetAllAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<DeviceResponse>> Device_GetAllAsync(System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Create a new device
         /// </summary>
         /// <returns>Device created successfully</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Device> Device_CreateAsync(CreateDeviceRequest body);
+        System.Threading.Tasks.Task<DeviceResponse> Device_CreateAsync(CreateDeviceRequest body);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -524,14 +524,14 @@ namespace StorageManager.Client.Contracts
         /// </summary>
         /// <returns>Device created successfully</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Device> Device_CreateAsync(CreateDeviceRequest body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<DeviceResponse> Device_CreateAsync(CreateDeviceRequest body, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Get details of a specific device
         /// </summary>
         /// <returns>Details of the device</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Device> Device_GetOneAsync(string deviceId);
+        System.Threading.Tasks.Task<DeviceResponse> Device_GetOneAsync(string deviceId);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -539,14 +539,14 @@ namespace StorageManager.Client.Contracts
         /// </summary>
         /// <returns>Details of the device</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Device> Device_GetOneAsync(string deviceId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<DeviceResponse> Device_GetOneAsync(string deviceId, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Update a specific device
         /// </summary>
         /// <returns>Device updated successfully</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Device> Device_UpdateAsync(string deviceId, UpdateDeviceRequest body);
+        System.Threading.Tasks.Task<DeviceResponse> Device_UpdateAsync(string deviceId, UpdateDeviceRequest body);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -554,7 +554,7 @@ namespace StorageManager.Client.Contracts
         /// </summary>
         /// <returns>Device updated successfully</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Device> Device_UpdateAsync(string deviceId, UpdateDeviceRequest body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<DeviceResponse> Device_UpdateAsync(string deviceId, UpdateDeviceRequest body, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Delete a specific device
@@ -574,7 +574,7 @@ namespace StorageManager.Client.Contracts
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class Site
+    public partial class SiteResponse
     {
         /// <summary>
         /// The unique identifier of the site
@@ -687,7 +687,7 @@ namespace StorageManager.Client.Contracts
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class Area
+    public partial class AreaResponse
     {
 
         [System.Text.Json.Serialization.JsonPropertyName("id")]
@@ -753,7 +753,7 @@ namespace StorageManager.Client.Contracts
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class Device
+    public partial class DeviceResponse
     {
 
         [System.Text.Json.Serialization.JsonPropertyName("id")]
@@ -828,7 +828,7 @@ namespace StorageManager.Client.Contracts
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class Module
+    public partial class ModuleResponse
     {
 
         [System.Text.Json.Serialization.JsonPropertyName("id")]

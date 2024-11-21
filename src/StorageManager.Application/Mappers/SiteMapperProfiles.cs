@@ -8,8 +8,8 @@ namespace StorageManager.Application.Mappers
     {
         public SiteMapperProfiles()
         {
-            CreateMap<Domain.Entities.Site, Site>();
-            CreateMap<Site, Domain.Entities.Site>();
+            CreateMap<Domain.Entities.Site, SiteResponse>();
+            CreateMap<SiteResponse, Domain.Entities.Site>();
         }
     }
 }

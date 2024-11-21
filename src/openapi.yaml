@@ -31,7 +31,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Site'
+                  $ref: '#/components/schemas/SiteResponse'
         '500':
           description: Internal server error
         '401':
@@ -55,7 +55,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Site'
+                $ref: '#/components/schemas/SiteResponse'
         '400':
           description: Bad request
         '401':
@@ -84,7 +84,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Site'
+                $ref: '#/components/schemas/SiteResponse'
         '404':
           description: Site not found
         '500':
@@ -117,7 +117,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Site'
+                $ref: '#/components/schemas/SiteResponse'
         '400':
           description: Bad request
         '404':
@@ -168,7 +168,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Area'
+                  $ref: '#/components/schemas/AreaResponse'
         '404':
           description: Site not found
         '500':
@@ -192,7 +192,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Area'
+                $ref: '#/components/schemas/AreaResponse'
         '404':
           description: Site not found
         '500':
@@ -213,7 +213,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Area'
+                $ref: '#/components/schemas/AreaResponse'
         '404':
           description: Area or Site not found
         '500':
@@ -238,7 +238,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Area'
+                $ref: '#/components/schemas/AreaResponse'
         '404':
           description: Area or Site not found
         '500':
@@ -275,7 +275,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Device'
+                  $ref: '#/components/schemas/DeviceResponse'
         '404':
           description: Site not found
         '500':
@@ -299,7 +299,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Device'
+                $ref: '#/components/schemas/DeviceResponse'
         '404':
           description: Site not found
         '500':
@@ -320,7 +320,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Device'
+                $ref: '#/components/schemas/DeviceResponse'
         '404':
           description: Device or Site not found
         '500':
@@ -345,7 +345,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Device'
+                $ref: '#/components/schemas/DeviceResponse'
         '404':
           description: Device or Site not found
         '500':
@@ -383,7 +383,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Module'
+                  $ref: '#/components/schemas/ModuleResponse'
         '404':
           description: Site or Area not found
         '500':
@@ -408,7 +408,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Module'
+                $ref: '#/components/schemas/ModuleResponse'
         '404':
           description: Site or Area not found
         '500':
@@ -430,7 +430,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Module'
+                $ref: '#/components/schemas/ModuleResponse'
         '404':
           description: Module, Area, or Site not found
         '500':
@@ -456,7 +456,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Module'
+                $ref: '#/components/schemas/ModuleResponse'
         '404':
           description: Module, Area, or Site not found
         '500':
@@ -495,7 +495,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Device'
+                  $ref: '#/components/schemas/DeviceResponse'
         '404':
           description: Site or Area not found
         '500':
@@ -520,7 +520,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Device'
+                $ref: '#/components/schemas/DeviceResponse'
         '404':
           description: Site or Area not found
         '500':
@@ -542,7 +542,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Device'
+                $ref: '#/components/schemas/DeviceResponse'
         '404':
           description: Device, Area, or Site not found
         '500':
@@ -568,7 +568,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Device'
+                $ref: '#/components/schemas/DeviceResponse'
         '404':
           description: Device, Area, or Site not found
         '500':
@@ -608,7 +608,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Device"
+                  $ref: "#/components/schemas/DeviceResponse"
         '404':
           description: Site or Area not found
         '500':
@@ -634,7 +634,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Device"
+                $ref: "#/components/schemas/DeviceResponse"
         '404':
           description: Site or Area not found
         '500':
@@ -657,7 +657,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Device"
+                $ref: "#/components/schemas/DeviceResponse"
         '404':
           description: Site or Area not found
         '500':
@@ -684,7 +684,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Device"
+                $ref: "#/components/schemas/DeviceResponse"
         '404':
           description: Site or Area not found
         '500':
@@ -721,7 +721,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Device"
+                  $ref: "#/components/schemas/DeviceResponse"
         "500":
           description: Internal Server Error
         "401":
@@ -745,7 +745,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Device"
+                $ref: "#/components/schemas/DeviceResponse"
         "400":
           description: Bad Request
         "500":
@@ -769,7 +769,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Device"
+                $ref: "#/components/schemas/DeviceResponse"
         "404":
           description: Device not found
         "500":
@@ -797,7 +797,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Device"
+                $ref: "#/components/schemas/DeviceResponse"
         "400":
           description: Bad Request
         "404":
@@ -855,7 +855,7 @@ components:
         type: string
 
   schemas:
-    Site:
+    SiteResponse:
       type: object
       properties:
         id:
@@ -899,7 +899,7 @@ components:
           type: string
           description: The updated description of the site
 
-    Area:
+    AreaResponse:
       type: object
       properties:
         id:
@@ -925,7 +925,7 @@ components:
         description:
           type: string
     
-    Device:
+    DeviceResponse:
       type: object
       properties:
         id:
@@ -957,7 +957,7 @@ components:
         description:
           type: string
 
-    Module:
+    ModuleResponse:
       type: object
       properties:
         id:

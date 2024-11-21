@@ -8,9 +8,9 @@ namespace StorageManager.Web.Stores.Actions
 
     public class FetchAllSitesSuccessAction
     {
-        public List<Site> Sites { get; }
+        public List<SiteResponse> Sites { get; }
 
-        public FetchAllSitesSuccessAction(List<Site> sites)
+        public FetchAllSitesSuccessAction(List<SiteResponse> sites)
         {
             Sites = sites;
         }
@@ -29,9 +29,9 @@ namespace StorageManager.Web.Stores.Actions
     public class FetchSiteDetailsSuccessAction
     {
         public string SiteId { get; }
-        public Site SiteDetails { get; }
+        public SiteResponse SiteDetails { get; }
 
-        public FetchSiteDetailsSuccessAction(string siteId, Site siteDetails)
+        public FetchSiteDetailsSuccessAction(string siteId, SiteResponse siteDetails)
         {
             SiteId = siteId;
             SiteDetails = siteDetails;

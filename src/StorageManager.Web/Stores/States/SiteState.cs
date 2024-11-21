@@ -7,19 +7,19 @@ namespace StorageManager.Web.Stores.States
     [FeatureState]
     public class SiteState
     {
-        public List<Site> Sites { get; }
+        public List<SiteResponse> Sites { get; }
 
         public bool SiteIsLoading { get; }
 
         public string SelectedId { get; }
-        public Site SelectedSite { get; }
+        public SiteResponse SelectedSite { get; }
 
         public SiteState()
         {
 
         }
 
-        public SiteState(List<Site> sites, bool siteIsLoading, string selectedId, Site selectedSite)
+        public SiteState(List<SiteResponse> sites, bool siteIsLoading, string selectedId, SiteResponse selectedSite)
         {
             Sites = sites;
             SiteIsLoading = siteIsLoading;

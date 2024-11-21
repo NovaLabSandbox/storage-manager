@@ -5,7 +5,7 @@
 
 @if (_siteState?.Value != null)
 {
-    <Table TItem="Site" DataSource="@_siteState.Value.Sites" Loading=@_siteState.Value.SiteIsLoading Bordered HidePagination AutoHeight PageSize="100" Responsive>
+    <Table TItem="SiteResponse" DataSource="@_siteState.Value.Sites" Loading=@_siteState.Value.SiteIsLoading Bordered HidePagination AutoHeight PageSize="100" Responsive>
         <PropertyColumn Property="c => c.Name">
             <a href="/site/@context.Id">@context.Name</a>
         </PropertyColumn>

@@ -7,7 +7,7 @@ using StorageManager.Core.Results;
 
 namespace StorageManager.Application.CQRS.Commands
 {
-    public class CreateSiteCommand : IRequest<OneOf<CreatedResult<Site>, NotFoundResult, ForbiddenResult, BusinessErrorResult>>
+    public class CreateSiteCommand : IRequest<OneOf<CreatedResult<SiteResponse>, NotFoundResult, ForbiddenResult, BusinessErrorResult>>
     {
         public CreateSiteCommand(SiteCreateRequest payload)
         {

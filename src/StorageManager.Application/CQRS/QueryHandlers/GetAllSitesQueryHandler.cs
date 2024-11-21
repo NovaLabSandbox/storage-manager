@@ -13,9 +13,9 @@ using StorageManager.Infrastructure.Interfaces;
 namespace StorageManager.Application.CQRS.QueryHandlers
 {
     public class GetAllSitesQueryHandler(ISiteRepository _siteRepository, IMapper _mapper, ICacheService _cacheService)
-        : IRequestHandler<GetAllSitesQuery, OneOf<List<Site>, NotFoundResult, ForbiddenResult, BusinessErrorResult>>
+        : IRequestHandler<GetAllSitesQuery, OneOf<List<SiteResponse>, NotFoundResult, ForbiddenResult, BusinessErrorResult>>
     {
-        public async Task<OneOf<List<Site>, NotFoundResult, ForbiddenResult, BusinessErrorResult>> Handle(GetAllSitesQuery request, CancellationToken cancellationToken)
+        public async Task<OneOf<List<SiteResponse>, NotFoundResult, ForbiddenResult, BusinessErrorResult>> Handle(GetAllSitesQuery request, CancellationToken cancellationToken)
         {
             var cacheSites = await _cacheService.RestoreAllSite();
             if (cacheSites != null)
@@ -25,10 +25,10 @@ namespace StorageManager.Application.CQRS.QueryHandlers
 
             if (sites == null || !sites.Any())
             {
-                return new List<Site>();
+                return new List<SiteResponse>();
             }
 
-            var sitesResponse = sites.Select(s => _mapper.Map<Site>(s)).ToList();
+            var sitesResponse = sites.Select(s => _mapper.Map<SiteResponse>(s)).ToList();
             await _cacheService.StoreAllSite(sitesResponse);
 
             return sitesResponse;

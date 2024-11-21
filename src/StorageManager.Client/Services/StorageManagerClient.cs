@@ -61,7 +61,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>Successfully retrieved all sites</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Site>> GetAllSitesAsync()
+        public virtual System.Threading.Tasks.Task<System.Collections.Generic.ICollection<SiteResponse>> GetAllSitesAsync()
         {
             return GetAllSitesAsync(System.Threading.CancellationToken.None);
         }
@@ -72,7 +72,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>Successfully retrieved all sites</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Site>> GetAllSitesAsync(System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<SiteResponse>> GetAllSitesAsync(System.Threading.CancellationToken cancellationToken)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -113,7 +113,7 @@ namespace StorageManager.Client
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<Site>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<SiteResponse>>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -163,7 +163,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>Site successfully created</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<Site> CreateSiteAsync(SiteCreateRequest body)
+        public virtual System.Threading.Tasks.Task<SiteResponse> CreateSiteAsync(SiteCreateRequest body)
         {
             return CreateSiteAsync(body, System.Threading.CancellationToken.None);
         }
@@ -174,7 +174,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>Site successfully created</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<Site> CreateSiteAsync(SiteCreateRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<SiteResponse> CreateSiteAsync(SiteCreateRequest body, System.Threading.CancellationToken cancellationToken)
         {
             if (body == null)
                 throw new System.ArgumentNullException("body");
@@ -222,7 +222,7 @@ namespace StorageManager.Client
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 201)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Site>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<SiteResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -279,7 +279,7 @@ namespace StorageManager.Client
         /// <param name="siteId">The ID of the site</param>
         /// <returns>Successfully retrieved site</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<Site> GetSiteByIdAsync(string siteId)
+        public virtual System.Threading.Tasks.Task<SiteResponse> GetSiteByIdAsync(string siteId)
         {
             return GetSiteByIdAsync(siteId, System.Threading.CancellationToken.None);
         }
@@ -291,7 +291,7 @@ namespace StorageManager.Client
         /// <param name="siteId">The ID of the site</param>
         /// <returns>Successfully retrieved site</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<Site> GetSiteByIdAsync(string siteId, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<SiteResponse> GetSiteByIdAsync(string siteId, System.Threading.CancellationToken cancellationToken)
         {
             if (siteId == null)
                 throw new System.ArgumentNullException("siteId");
@@ -336,7 +336,7 @@ namespace StorageManager.Client
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Site>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<SiteResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -393,7 +393,7 @@ namespace StorageManager.Client
         /// <param name="siteId">The ID of the site to update</param>
         /// <returns>Successfully updated site</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<Site> UpdateSiteAsync(string siteId, SiteUpdateRequest body)
+        public virtual System.Threading.Tasks.Task<SiteResponse> UpdateSiteAsync(string siteId, SiteUpdateRequest body)
         {
             return UpdateSiteAsync(siteId, body, System.Threading.CancellationToken.None);
         }
@@ -405,7 +405,7 @@ namespace StorageManager.Client
         /// <param name="siteId">The ID of the site to update</param>
         /// <returns>Successfully updated site</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<Site> UpdateSiteAsync(string siteId, SiteUpdateRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<SiteResponse> UpdateSiteAsync(string siteId, SiteUpdateRequest body, System.Threading.CancellationToken cancellationToken)
         {
             if (siteId == null)
                 throw new System.ArgumentNullException("siteId");
@@ -457,7 +457,7 @@ namespace StorageManager.Client
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Site>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<SiteResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -627,7 +627,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>A list of devices in the site</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Device>> GetAllDevicesAsync(string siteId)
+        public virtual System.Threading.Tasks.Task<System.Collections.Generic.ICollection<DeviceResponse>> GetAllDevicesAsync(string siteId)
         {
             return GetAllDevicesAsync(siteId, System.Threading.CancellationToken.None);
         }
@@ -638,7 +638,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>A list of devices in the site</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Device>> GetAllDevicesAsync(string siteId, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<DeviceResponse>> GetAllDevicesAsync(string siteId, System.Threading.CancellationToken cancellationToken)
         {
             if (siteId == null)
                 throw new System.ArgumentNullException("siteId");
@@ -684,7 +684,7 @@ namespace StorageManager.Client
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<Device>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<DeviceResponse>>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -728,7 +728,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>Device created successfully</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<Device> CreateDeviceAsync(string siteId, CreateDeviceRequest body)
+        public virtual System.Threading.Tasks.Task<DeviceResponse> CreateDeviceAsync(string siteId, CreateDeviceRequest body)
         {
             return CreateDeviceAsync(siteId, body, System.Threading.CancellationToken.None);
         }
@@ -739,7 +739,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>Device created successfully</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<Device> CreateDeviceAsync(string siteId, CreateDeviceRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<DeviceResponse> CreateDeviceAsync(string siteId, CreateDeviceRequest body, System.Threading.CancellationToken cancellationToken)
         {
             if (siteId == null)
                 throw new System.ArgumentNullException("siteId");
@@ -792,7 +792,7 @@ namespace StorageManager.Client
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 201)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Device>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<DeviceResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -836,7 +836,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>Device details</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<Device> GetDeviceByIdAsync(string siteId, string deviceId)
+        public virtual System.Threading.Tasks.Task<DeviceResponse> GetDeviceByIdAsync(string siteId, string deviceId)
         {
             return GetDeviceByIdAsync(siteId, deviceId, System.Threading.CancellationToken.None);
         }
@@ -847,7 +847,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>Device details</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<Device> GetDeviceByIdAsync(string siteId, string deviceId, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<DeviceResponse> GetDeviceByIdAsync(string siteId, string deviceId, System.Threading.CancellationToken cancellationToken)
         {
             if (siteId == null)
                 throw new System.ArgumentNullException("siteId");
@@ -897,7 +897,7 @@ namespace StorageManager.Client
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Device>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<DeviceResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -941,7 +941,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>Device updated successfully</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<Device> UpdateDeviceAsync(string siteId, string deviceId, UpdateDeviceRequest body)
+        public virtual System.Threading.Tasks.Task<DeviceResponse> UpdateDeviceAsync(string siteId, string deviceId, UpdateDeviceRequest body)
         {
             return UpdateDeviceAsync(siteId, deviceId, body, System.Threading.CancellationToken.None);
         }
@@ -952,7 +952,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>Device updated successfully</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<Device> UpdateDeviceAsync(string siteId, string deviceId, UpdateDeviceRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<DeviceResponse> UpdateDeviceAsync(string siteId, string deviceId, UpdateDeviceRequest body, System.Threading.CancellationToken cancellationToken)
         {
             if (siteId == null)
                 throw new System.ArgumentNullException("siteId");
@@ -1009,7 +1009,7 @@ namespace StorageManager.Client
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Device>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<DeviceResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -1293,7 +1293,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>A list of areas in the site</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Area>> GetAllAreasAsync(string siteId)
+        public virtual System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AreaResponse>> GetAllAreasAsync(string siteId)
         {
             return GetAllAreasAsync(siteId, System.Threading.CancellationToken.None);
         }
@@ -1304,7 +1304,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>A list of areas in the site</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Area>> GetAllAreasAsync(string siteId, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AreaResponse>> GetAllAreasAsync(string siteId, System.Threading.CancellationToken cancellationToken)
         {
             if (siteId == null)
                 throw new System.ArgumentNullException("siteId");
@@ -1350,7 +1350,7 @@ namespace StorageManager.Client
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<Area>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<AreaResponse>>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -1394,7 +1394,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>Area created successfully</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<Area> CreateAreaAsync(string siteId, CreateAreaRequest body)
+        public virtual System.Threading.Tasks.Task<AreaResponse> CreateAreaAsync(string siteId, CreateAreaRequest body)
         {
             return CreateAreaAsync(siteId, body, System.Threading.CancellationToken.None);
         }
@@ -1405,7 +1405,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>Area created successfully</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<Area> CreateAreaAsync(string siteId, CreateAreaRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<AreaResponse> CreateAreaAsync(string siteId, CreateAreaRequest body, System.Threading.CancellationToken cancellationToken)
         {
             if (siteId == null)
                 throw new System.ArgumentNullException("siteId");
@@ -1458,7 +1458,7 @@ namespace StorageManager.Client
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 201)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Area>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<AreaResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -1502,7 +1502,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>Area details</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<Area> GetAreaByIdAsync(string siteId, string areaId)
+        public virtual System.Threading.Tasks.Task<AreaResponse> GetAreaByIdAsync(string siteId, string areaId)
         {
             return GetAreaByIdAsync(siteId, areaId, System.Threading.CancellationToken.None);
         }
@@ -1513,7 +1513,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>Area details</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<Area> GetAreaByIdAsync(string siteId, string areaId, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<AreaResponse> GetAreaByIdAsync(string siteId, string areaId, System.Threading.CancellationToken cancellationToken)
         {
             if (siteId == null)
                 throw new System.ArgumentNullException("siteId");
@@ -1563,7 +1563,7 @@ namespace StorageManager.Client
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Area>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<AreaResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -1607,7 +1607,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>Area updated successfully</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<Area> UpdateAreaAsync(string siteId, string areaId, UpdateAreaRequest body)
+        public virtual System.Threading.Tasks.Task<AreaResponse> UpdateAreaAsync(string siteId, string areaId, UpdateAreaRequest body)
         {
             return UpdateAreaAsync(siteId, areaId, body, System.Threading.CancellationToken.None);
         }
@@ -1618,7 +1618,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>Area updated successfully</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<Area> UpdateAreaAsync(string siteId, string areaId, UpdateAreaRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<AreaResponse> UpdateAreaAsync(string siteId, string areaId, UpdateAreaRequest body, System.Threading.CancellationToken cancellationToken)
         {
             if (siteId == null)
                 throw new System.ArgumentNullException("siteId");
@@ -1675,7 +1675,7 @@ namespace StorageManager.Client
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Area>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<AreaResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -1818,7 +1818,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>A list of devices in the area</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Device>> GetAllDevicesInAreaAsync(string siteId, string areaId)
+        public virtual System.Threading.Tasks.Task<System.Collections.Generic.ICollection<DeviceResponse>> GetAllDevicesInAreaAsync(string siteId, string areaId)
         {
             return GetAllDevicesInAreaAsync(siteId, areaId, System.Threading.CancellationToken.None);
         }
@@ -1829,7 +1829,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>A list of devices in the area</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Device>> GetAllDevicesInAreaAsync(string siteId, string areaId, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<DeviceResponse>> GetAllDevicesInAreaAsync(string siteId, string areaId, System.Threading.CancellationToken cancellationToken)
         {
             if (siteId == null)
                 throw new System.ArgumentNullException("siteId");
@@ -1880,7 +1880,7 @@ namespace StorageManager.Client
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<Device>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<DeviceResponse>>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -1924,7 +1924,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>Device created successfully</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<Device> CreateDeviceInAreaAsync(string siteId, string areaId, CreateDeviceRequest body)
+        public virtual System.Threading.Tasks.Task<DeviceResponse> CreateDeviceInAreaAsync(string siteId, string areaId, CreateDeviceRequest body)
         {
             return CreateDeviceInAreaAsync(siteId, areaId, body, System.Threading.CancellationToken.None);
         }
@@ -1935,7 +1935,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>Device created successfully</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<Device> CreateDeviceInAreaAsync(string siteId, string areaId, CreateDeviceRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<DeviceResponse> CreateDeviceInAreaAsync(string siteId, string areaId, CreateDeviceRequest body, System.Threading.CancellationToken cancellationToken)
         {
             if (siteId == null)
                 throw new System.ArgumentNullException("siteId");
@@ -1993,7 +1993,7 @@ namespace StorageManager.Client
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 201)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Device>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<DeviceResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -2037,7 +2037,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>Device details</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<Device> GetDeviceByIdInAreaAsync(string siteId, string areaId, string deviceId)
+        public virtual System.Threading.Tasks.Task<DeviceResponse> GetDeviceByIdInAreaAsync(string siteId, string areaId, string deviceId)
         {
             return GetDeviceByIdInAreaAsync(siteId, areaId, deviceId, System.Threading.CancellationToken.None);
         }
@@ -2048,7 +2048,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>Device details</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<Device> GetDeviceByIdInAreaAsync(string siteId, string areaId, string deviceId, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<DeviceResponse> GetDeviceByIdInAreaAsync(string siteId, string areaId, string deviceId, System.Threading.CancellationToken cancellationToken)
         {
             if (siteId == null)
                 throw new System.ArgumentNullException("siteId");
@@ -2103,7 +2103,7 @@ namespace StorageManager.Client
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Device>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<DeviceResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -2147,7 +2147,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>Device updated successfully</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<Device> UpdateDeviceInAreaAsync(string siteId, string areaId, string deviceId, UpdateDeviceRequest body)
+        public virtual System.Threading.Tasks.Task<DeviceResponse> UpdateDeviceInAreaAsync(string siteId, string areaId, string deviceId, UpdateDeviceRequest body)
         {
             return UpdateDeviceInAreaAsync(siteId, areaId, deviceId, body, System.Threading.CancellationToken.None);
         }
@@ -2158,7 +2158,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>Device updated successfully</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<Device> UpdateDeviceInAreaAsync(string siteId, string areaId, string deviceId, UpdateDeviceRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<DeviceResponse> UpdateDeviceInAreaAsync(string siteId, string areaId, string deviceId, UpdateDeviceRequest body, System.Threading.CancellationToken cancellationToken)
         {
             if (siteId == null)
                 throw new System.ArgumentNullException("siteId");
@@ -2220,7 +2220,7 @@ namespace StorageManager.Client
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Device>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<DeviceResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -2509,7 +2509,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>A list of modules in the area</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Module>> GetAllModulesAsync(string siteId, string areaId)
+        public virtual System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ModuleResponse>> GetAllModulesAsync(string siteId, string areaId)
         {
             return GetAllModulesAsync(siteId, areaId, System.Threading.CancellationToken.None);
         }
@@ -2520,7 +2520,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>A list of modules in the area</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Module>> GetAllModulesAsync(string siteId, string areaId, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ModuleResponse>> GetAllModulesAsync(string siteId, string areaId, System.Threading.CancellationToken cancellationToken)
         {
             if (siteId == null)
                 throw new System.ArgumentNullException("siteId");
@@ -2571,7 +2571,7 @@ namespace StorageManager.Client
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<Module>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<ModuleResponse>>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -2615,7 +2615,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>Module created successfully</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<Module> CreateModuleAsync(string siteId, string areaId, CreateModuleRequest body)
+        public virtual System.Threading.Tasks.Task<ModuleResponse> CreateModuleAsync(string siteId, string areaId, CreateModuleRequest body)
         {
             return CreateModuleAsync(siteId, areaId, body, System.Threading.CancellationToken.None);
         }
@@ -2626,7 +2626,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>Module created successfully</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<Module> CreateModuleAsync(string siteId, string areaId, CreateModuleRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<ModuleResponse> CreateModuleAsync(string siteId, string areaId, CreateModuleRequest body, System.Threading.CancellationToken cancellationToken)
         {
             if (siteId == null)
                 throw new System.ArgumentNullException("siteId");
@@ -2684,7 +2684,7 @@ namespace StorageManager.Client
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 201)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Module>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<ModuleResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -2728,7 +2728,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>Module details</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<Module> GetModuleByIdAsync(string siteId, string areaId, string moduleId)
+        public virtual System.Threading.Tasks.Task<ModuleResponse> GetModuleByIdAsync(string siteId, string areaId, string moduleId)
         {
             return GetModuleByIdAsync(siteId, areaId, moduleId, System.Threading.CancellationToken.None);
         }
@@ -2739,7 +2739,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>Module details</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<Module> GetModuleByIdAsync(string siteId, string areaId, string moduleId, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<ModuleResponse> GetModuleByIdAsync(string siteId, string areaId, string moduleId, System.Threading.CancellationToken cancellationToken)
         {
             if (siteId == null)
                 throw new System.ArgumentNullException("siteId");
@@ -2794,7 +2794,7 @@ namespace StorageManager.Client
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Module>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<ModuleResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -2838,7 +2838,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>Module updated successfully</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<Module> UpdateModuleAsync(string siteId, string areaId, string moduleId, UpdateModuleRequest body)
+        public virtual System.Threading.Tasks.Task<ModuleResponse> UpdateModuleAsync(string siteId, string areaId, string moduleId, UpdateModuleRequest body)
         {
             return UpdateModuleAsync(siteId, areaId, moduleId, body, System.Threading.CancellationToken.None);
         }
@@ -2849,7 +2849,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>Module updated successfully</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<Module> UpdateModuleAsync(string siteId, string areaId, string moduleId, UpdateModuleRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<ModuleResponse> UpdateModuleAsync(string siteId, string areaId, string moduleId, UpdateModuleRequest body, System.Threading.CancellationToken cancellationToken)
         {
             if (siteId == null)
                 throw new System.ArgumentNullException("siteId");
@@ -2911,7 +2911,7 @@ namespace StorageManager.Client
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Module>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<ModuleResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -3059,7 +3059,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>A list of devices in the module</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Device>> Module_GetAllDevicesAsync(string siteId, string areaId, string moduleId)
+        public virtual System.Threading.Tasks.Task<System.Collections.Generic.ICollection<DeviceResponse>> Module_GetAllDevicesAsync(string siteId, string areaId, string moduleId)
         {
             return Module_GetAllDevicesAsync(siteId, areaId, moduleId, System.Threading.CancellationToken.None);
         }
@@ -3070,7 +3070,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>A list of devices in the module</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Device>> Module_GetAllDevicesAsync(string siteId, string areaId, string moduleId, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<DeviceResponse>> Module_GetAllDevicesAsync(string siteId, string areaId, string moduleId, System.Threading.CancellationToken cancellationToken)
         {
             if (siteId == null)
                 throw new System.ArgumentNullException("siteId");
@@ -3126,7 +3126,7 @@ namespace StorageManager.Client
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<Device>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<DeviceResponse>>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -3170,7 +3170,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>Device created successfully</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<Device> Module_CreateDeviceAsync(string siteId, string areaId, string moduleId, CreateDeviceRequest body)
+        public virtual System.Threading.Tasks.Task<DeviceResponse> Module_CreateDeviceAsync(string siteId, string areaId, string moduleId, CreateDeviceRequest body)
         {
             return Module_CreateDeviceAsync(siteId, areaId, moduleId, body, System.Threading.CancellationToken.None);
         }
@@ -3181,7 +3181,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>Device created successfully</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<Device> Module_CreateDeviceAsync(string siteId, string areaId, string moduleId, CreateDeviceRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<DeviceResponse> Module_CreateDeviceAsync(string siteId, string areaId, string moduleId, CreateDeviceRequest body, System.Threading.CancellationToken cancellationToken)
         {
             if (siteId == null)
                 throw new System.ArgumentNullException("siteId");
@@ -3244,7 +3244,7 @@ namespace StorageManager.Client
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 201)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Device>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<DeviceResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -3288,7 +3288,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>Details of the device</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<Device> Module_GetDeviceAsync(string siteId, string areaId, string moduleId, string deviceId)
+        public virtual System.Threading.Tasks.Task<DeviceResponse> Module_GetDeviceAsync(string siteId, string areaId, string moduleId, string deviceId)
         {
             return Module_GetDeviceAsync(siteId, areaId, moduleId, deviceId, System.Threading.CancellationToken.None);
         }
@@ -3299,7 +3299,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>Details of the device</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<Device> Module_GetDeviceAsync(string siteId, string areaId, string moduleId, string deviceId, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<DeviceResponse> Module_GetDeviceAsync(string siteId, string areaId, string moduleId, string deviceId, System.Threading.CancellationToken cancellationToken)
         {
             if (siteId == null)
                 throw new System.ArgumentNullException("siteId");
@@ -3359,7 +3359,7 @@ namespace StorageManager.Client
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Device>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<DeviceResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -3403,7 +3403,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>Device updated successfully</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<Device> Module_UpdateDeviceAsync(string siteId, string areaId, string moduleId, string deviceId, UpdateDeviceRequest body)
+        public virtual System.Threading.Tasks.Task<DeviceResponse> Module_UpdateDeviceAsync(string siteId, string areaId, string moduleId, string deviceId, UpdateDeviceRequest body)
         {
             return Module_UpdateDeviceAsync(siteId, areaId, moduleId, deviceId, body, System.Threading.CancellationToken.None);
         }
@@ -3414,7 +3414,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>Device updated successfully</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<Device> Module_UpdateDeviceAsync(string siteId, string areaId, string moduleId, string deviceId, UpdateDeviceRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<DeviceResponse> Module_UpdateDeviceAsync(string siteId, string areaId, string moduleId, string deviceId, UpdateDeviceRequest body, System.Threading.CancellationToken cancellationToken)
         {
             if (siteId == null)
                 throw new System.ArgumentNullException("siteId");
@@ -3481,7 +3481,7 @@ namespace StorageManager.Client
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Device>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<DeviceResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -3775,7 +3775,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>List of all devices</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Device>> Device_GetAllAsync()
+        public virtual System.Threading.Tasks.Task<System.Collections.Generic.ICollection<DeviceResponse>> Device_GetAllAsync()
         {
             return Device_GetAllAsync(System.Threading.CancellationToken.None);
         }
@@ -3786,7 +3786,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>List of all devices</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Device>> Device_GetAllAsync(System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<DeviceResponse>> Device_GetAllAsync(System.Threading.CancellationToken cancellationToken)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -3827,7 +3827,7 @@ namespace StorageManager.Client
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<Device>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<DeviceResponse>>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -3877,7 +3877,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>Device created successfully</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<Device> Device_CreateAsync(CreateDeviceRequest body)
+        public virtual System.Threading.Tasks.Task<DeviceResponse> Device_CreateAsync(CreateDeviceRequest body)
         {
             return Device_CreateAsync(body, System.Threading.CancellationToken.None);
         }
@@ -3888,7 +3888,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>Device created successfully</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<Device> Device_CreateAsync(CreateDeviceRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<DeviceResponse> Device_CreateAsync(CreateDeviceRequest body, System.Threading.CancellationToken cancellationToken)
         {
             if (body == null)
                 throw new System.ArgumentNullException("body");
@@ -3936,7 +3936,7 @@ namespace StorageManager.Client
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 201)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Device>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<DeviceResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -3992,7 +3992,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>Details of the device</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<Device> Device_GetOneAsync(string deviceId)
+        public virtual System.Threading.Tasks.Task<DeviceResponse> Device_GetOneAsync(string deviceId)
         {
             return Device_GetOneAsync(deviceId, System.Threading.CancellationToken.None);
         }
@@ -4003,7 +4003,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>Details of the device</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<Device> Device_GetOneAsync(string deviceId, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<DeviceResponse> Device_GetOneAsync(string deviceId, System.Threading.CancellationToken cancellationToken)
         {
             if (deviceId == null)
                 throw new System.ArgumentNullException("deviceId");
@@ -4048,7 +4048,7 @@ namespace StorageManager.Client
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Device>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<DeviceResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -4104,7 +4104,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>Device updated successfully</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<Device> Device_UpdateAsync(string deviceId, UpdateDeviceRequest body)
+        public virtual System.Threading.Tasks.Task<DeviceResponse> Device_UpdateAsync(string deviceId, UpdateDeviceRequest body)
         {
             return Device_UpdateAsync(deviceId, body, System.Threading.CancellationToken.None);
         }
@@ -4115,7 +4115,7 @@ namespace StorageManager.Client
         /// </summary>
         /// <returns>Device updated successfully</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<Device> Device_UpdateAsync(string deviceId, UpdateDeviceRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<DeviceResponse> Device_UpdateAsync(string deviceId, UpdateDeviceRequest body, System.Threading.CancellationToken cancellationToken)
         {
             if (deviceId == null)
                 throw new System.ArgumentNullException("deviceId");
@@ -4167,7 +4167,7 @@ namespace StorageManager.Client
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Device>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<DeviceResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);

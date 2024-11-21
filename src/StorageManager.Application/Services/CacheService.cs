@@ -17,7 +17,7 @@ namespace StorageManager.Application.Services
             return _cache.RemoveAsync(AllSiteKey);
         }
 
-        public Task StoreAllSite(List<Site> sites)
+        public Task StoreAllSite(List<SiteResponse> sites)
         {
             return _cache.SetStringAsync(AllSiteKey, JsonSerializer.Serialize(sites), new DistributedCacheEntryOptions()
             {
@@ -25,12 +25,12 @@ namespace StorageManager.Application.Services
             });
         }
 
-        public async Task<List<Site>> RestoreAllSite()
+        public async Task<List<SiteResponse>> RestoreAllSite()
         {
             var cacheValue = await _cache.GetStringAsync(AllSiteKey);
 
             if (!string.IsNullOrEmpty(cacheValue))
-                return JsonSerializer.Deserialize<List<Site>>((cacheValue));
+                return JsonSerializer.Deserialize<List<SiteResponse>>((cacheValue));
 
             return null;
         }

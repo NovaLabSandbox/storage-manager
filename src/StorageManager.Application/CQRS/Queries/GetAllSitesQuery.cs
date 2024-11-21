@@ -7,7 +7,7 @@ using StorageManager.Core.Results;
 
 namespace StorageManager.Application.CQRS.Queries
 {
-    public class GetAllSitesQuery : IRequest<OneOf<List<Site>, NotFoundResult, ForbiddenResult, BusinessErrorResult>>
+    public class GetAllSitesQuery : IRequest<OneOf<List<SiteResponse>, NotFoundResult, ForbiddenResult, BusinessErrorResult>>
     {
     }
 }
