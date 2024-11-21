@@ -1,15 +1,8 @@
 {
   "profiles": {
-    "http": {
-      "commandName": "Project",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "dotnetRunMessages": true,
-      "applicationUrl": "http://localhost:5035"
-    },
     "https": {
       "commandName": "Project",
+      "launchUrl": "api-docs",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

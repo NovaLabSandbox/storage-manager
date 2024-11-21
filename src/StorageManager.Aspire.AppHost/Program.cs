@@ -2,23 +2,37 @@ using Aspire.Hosting;
 
 var builder = DistributedApplication.CreateBuilder(args);
 
-var mongodb = builder.AddMongoDB("mongodb")
+var mongodb = builder.AddMongoDB("database")
                         .WithMongoExpress();
 
-var cache = builder.AddRedis("redis")
+var cache = builder.AddRedis("cache")
                         .WithRedisInsight();
 
 var messageQueue = builder.AddRabbitMQ("messageQueue")
                             .WithManagementPlugin(15888);
 
-var function = builder.AddAzureFunctionsProject<Projects.StorageManager_Functions>("az-functions")
+//var function = builder.AddAzureFunctionsProject<Projects.StorageManager_Functions>("az-functions")
+//                        .WithDaprSidecar()
+//                        .WithReference(cache)
+//                        .WithReference(mongodb)
+//                        .WithReference(messageQueue)
+//                        .WaitFor(cache)
+//                        .WaitFor(mongodb)
+//                        .WaitFor(messageQueue)
+//                        .WithExternalHttpEndpoints();
+
+var backend = builder.AddProject<Projects.StorageManager_Service_Host>("backend")
                         .WithDaprSidecar()
                         .WithReference(cache)
                         .WithReference(mongodb)
                         .WithReference(messageQueue)
                         .WaitFor(cache)
                         .WaitFor(mongodb)
-                        .WaitFor(messageQueue)
-                        .WithExternalHttpEndpoints();
+                        .WaitFor(messageQueue);
+
+
+var frontend = builder.AddProject<Projects.StorageManager_Web>("frontend")
+                        .WithReference(backend)
+                        .WaitFor(backend);
 
 builder.Build().Run();

@@ -28,7 +28,7 @@ namespace StorageManager.Service.Host.Controllers
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
     [Microsoft.AspNetCore.Mvc.Route("api")]
 
-    public abstract class StorageManagerAbstractControllerControllerBase : CoreController
+    public abstract class StorageManagerControllerBase : CoreController
     {
         /// <summary>
         /// Get all sites

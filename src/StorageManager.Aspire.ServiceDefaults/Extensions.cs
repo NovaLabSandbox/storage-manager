@@ -16,6 +16,12 @@ public static class Extensions
     {
         builder.Services.AddControllers();
         builder.Services.AddOpenApi();
+        builder.Services.AddCors(policy =>
+        {
+            policy.AddDefaultPolicy(defaultPolicy => defaultPolicy.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin());
+        });
+        builder.AddMongoDBClient("database");
+        builder.AddRedisDistributedCache("cache");
 
         builder.ConfigureOpenTelemetry();
 
@@ -84,6 +90,7 @@ public static class Extensions
     {
         app.MapOpenApi();
         app.UseHttpsRedirection();
+        app.UseCors();
         app.MapDefaultEndpoints();
         app.UseAuthorization();
         app.MapControllers();

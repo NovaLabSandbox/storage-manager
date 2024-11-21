@@ -29,9 +29,9 @@ namespace StorageManager.Core.Http
             return oneOf.Match(MapCreatedResult, MapForbiddenResult, MapNotFoundResult, MapBusinessError);
         }
 
-        public ActionResult Do<T>(OneOf<T, ForbiddenResult, Results.NotFoundResult, BusinessErrorResult> oneOf)
+        public ActionResult Do<T>(OneOf<T, Results.NotFoundResult, ForbiddenResult, BusinessErrorResult> oneOf)
         {
-            return oneOf.Match(MapOkResult, MapForbiddenResult, MapNotFoundResult, MapBusinessError);
+            return oneOf.Match(MapOkResult, MapNotFoundResult, MapForbiddenResult, MapBusinessError);
         }
 
         public ActionResult Do<T>(OneOf<CreatedResult<T>, Results.ConflictResult, ForbiddenResult, Results.NotFoundResult, BusinessErrorResult> oneOf)
