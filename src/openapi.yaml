@@ -264,7 +264,7 @@ paths:
       summary: Get all devices of a site
       tags:
         - Site
-      operationId: getAllDevices
+      operationId: getAllDevicesInSite
       parameters:
         - $ref: '#/components/parameters/SiteId'
       responses:
@@ -284,7 +284,7 @@ paths:
       summary: Create a new device in the site
       tags:
         - Site
-      operationId: createDevice
+      operationId: createDeviceInSite
       parameters:
         - $ref: '#/components/parameters/SiteId'
       requestBody:
@@ -310,7 +310,7 @@ paths:
       summary: Get details of a specific device in a site
       tags:
         - Site
-      operationId: getDeviceById
+      operationId: getDeviceByIdInSite
       parameters:
         - $ref: '#/components/parameters/SiteId'
         - $ref: '#/components/parameters/DeviceId'
@@ -329,7 +329,7 @@ paths:
       summary: Update a device in the site
       tags:
         - Site
-      operationId: updateDevice
+      operationId: updateDeviceInSite
       parameters:
         - $ref: '#/components/parameters/SiteId'
         - $ref: '#/components/parameters/DeviceId'
@@ -354,7 +354,7 @@ paths:
       summary: Delete a device from the site
       tags:
         - Site
-      operationId: deleteDevice
+      operationId: deleteDeviceInSite
       parameters:
         - $ref: '#/components/parameters/SiteId'
         - $ref: '#/components/parameters/DeviceId'
@@ -593,7 +593,7 @@ paths:
   /site/{siteId}/area/{areaId}/module/{moduleId}/device:
     get:
       summary: Get all devices in a module
-      operationId: Module_GetAllDevices
+      operationId: getAllDevicesInModule
       tags:
         - Module
       parameters:
@@ -615,7 +615,7 @@ paths:
           description: Internal server error
     post:
       summary: Create a new device in a module
-      operationId: Module_CreateDevice
+      operationId: createDeviceInModule
       tags:
         - Module
       parameters:
@@ -643,7 +643,7 @@ paths:
   /site/{siteId}/area/{areaId}/module/{moduleId}/device/{deviceId}:
     get:
       summary: Get details of a specific device in a module
-      operationId: Module_GetDevice
+      operationId: getDeviceByIdInModule
       tags:
         - Module
       parameters:
@@ -664,7 +664,7 @@ paths:
           description: Internal server error
     put:
       summary: Update a device in a module
-      operationId: Module_UpdateDevice
+      operationId: updateDeviceInModule
       tags:
         - Module
       parameters:
@@ -691,7 +691,7 @@ paths:
           description: Internal server error
     delete:
       summary: Delete a device in a module
-      operationId: Module_DeleteDevice
+      operationId: deleteDeviceInModule
       tags:
         - Module
       parameters:
@@ -710,7 +710,7 @@ paths:
   /device:
     get:
       summary: Get all devices
-      operationId: Device_GetAll
+      operationId: getAllDevices
       tags:
         - Device
       responses:
@@ -730,7 +730,7 @@ paths:
           description: Forbidden
     post:
       summary: Create a new device
-      operationId: Device_Create
+      operationId: createDevice
       tags:
         - Device
       requestBody:
@@ -758,7 +758,7 @@ paths:
   /device/{deviceId}:
     get:
       summary: Get details of a specific device
-      operationId: Device_GetOne
+      operationId: getDeviceById
       tags:
         - Device
       parameters:
@@ -780,7 +780,7 @@ paths:
           description: Forbidden
     put:
       summary: Update a specific device
-      operationId: Device_Update
+      operationId: updateDevice
       tags:
         - Device
       parameters:
@@ -810,7 +810,7 @@ paths:
           description: Forbidden
     delete:
       summary: Delete a specific device
-      operationId: Device_Delete
+      operationId: deleteDevice
       tags:
         - Device
       parameters:

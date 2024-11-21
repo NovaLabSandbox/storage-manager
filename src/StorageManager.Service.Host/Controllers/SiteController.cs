@@ -32,27 +32,27 @@ namespace StorageManager.Service.Host.Controllers
         public override async Task<IActionResult> DeleteSite(string siteId)
             => Do(await _mediator.Send(new DeleteSiteCommand(siteId)));
 
-        public override Task<ActionResult<ICollection<DeviceResponse>>> GetAllDevices(string siteId)
+        public override Task<ActionResult<ICollection<DeviceResponse>>> GetAllDevicesInSite(string siteId)
         {
             throw new NotImplementedException();
         }
 
-        public override Task<ActionResult<DeviceResponse>> CreateDevice(string siteId, [FromBody] CreateDeviceRequest body)
+        public override Task<ActionResult<DeviceResponse>> CreateDeviceInSite(string siteId, [FromBody] CreateDeviceRequest body)
         {
             throw new NotImplementedException();
         }
 
-        public override Task<ActionResult<DeviceResponse>> GetDeviceById(string siteId, string deviceId)
+        public override Task<ActionResult<DeviceResponse>> GetDeviceByIdInSite(string siteId, string deviceId)
         {
             throw new NotImplementedException();
         }
 
-        public override Task<ActionResult<DeviceResponse>> UpdateDevice(string siteId, string deviceId, [FromBody] UpdateDeviceRequest body)
+        public override Task<ActionResult<DeviceResponse>> UpdateDeviceInSite(string siteId, string deviceId, [FromBody] UpdateDeviceRequest body)
         {
             throw new NotImplementedException();
         }
 
-        public override Task<IActionResult> DeleteDevice(string siteId, string deviceId)
+        public override Task<IActionResult> DeleteDeviceInSite(string siteId, string deviceId)
         {
             throw new NotImplementedException();
         }

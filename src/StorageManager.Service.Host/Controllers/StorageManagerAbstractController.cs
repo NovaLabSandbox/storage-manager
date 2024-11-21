@@ -72,36 +72,36 @@ namespace StorageManager.Service.Host.Controllers
         /// Get all devices of a site
         /// </summary>
         /// <returns>A list of devices in the site</returns>
-        [Microsoft.AspNetCore.Mvc.HttpGet, Microsoft.AspNetCore.Mvc.Route("site/{siteId}/device", Name = "getAllDevices")]
-        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<System.Collections.Generic.ICollection<DeviceResponse>>> GetAllDevices(string siteId);
+        [Microsoft.AspNetCore.Mvc.HttpGet, Microsoft.AspNetCore.Mvc.Route("site/{siteId}/device", Name = "getAllDevicesInSite")]
+        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<System.Collections.Generic.ICollection<DeviceResponse>>> GetAllDevicesInSite(string siteId);
 
         /// <summary>
         /// Create a new device in the site
         /// </summary>
         /// <returns>Device created successfully</returns>
-        [Microsoft.AspNetCore.Mvc.HttpPost, Microsoft.AspNetCore.Mvc.Route("site/{siteId}/device", Name = "createDevice")]
-        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<DeviceResponse>> CreateDevice(string siteId, [Microsoft.AspNetCore.Mvc.FromBody] CreateDeviceRequest body);
+        [Microsoft.AspNetCore.Mvc.HttpPost, Microsoft.AspNetCore.Mvc.Route("site/{siteId}/device", Name = "createDeviceInSite")]
+        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<DeviceResponse>> CreateDeviceInSite(string siteId, [Microsoft.AspNetCore.Mvc.FromBody] CreateDeviceRequest body);
 
         /// <summary>
         /// Get details of a specific device in a site
         /// </summary>
         /// <returns>Device details</returns>
-        [Microsoft.AspNetCore.Mvc.HttpGet, Microsoft.AspNetCore.Mvc.Route("site/{siteId}/device/{deviceId}", Name = "getDeviceById")]
-        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<DeviceResponse>> GetDeviceById(string siteId, string deviceId);
+        [Microsoft.AspNetCore.Mvc.HttpGet, Microsoft.AspNetCore.Mvc.Route("site/{siteId}/device/{deviceId}", Name = "getDeviceByIdInSite")]
+        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<DeviceResponse>> GetDeviceByIdInSite(string siteId, string deviceId);
 
         /// <summary>
         /// Update a device in the site
         /// </summary>
         /// <returns>Device updated successfully</returns>
-        [Microsoft.AspNetCore.Mvc.HttpPut, Microsoft.AspNetCore.Mvc.Route("site/{siteId}/device/{deviceId}", Name = "updateDevice")]
-        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<DeviceResponse>> UpdateDevice(string siteId, string deviceId, [Microsoft.AspNetCore.Mvc.FromBody] UpdateDeviceRequest body);
+        [Microsoft.AspNetCore.Mvc.HttpPut, Microsoft.AspNetCore.Mvc.Route("site/{siteId}/device/{deviceId}", Name = "updateDeviceInSite")]
+        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<DeviceResponse>> UpdateDeviceInSite(string siteId, string deviceId, [Microsoft.AspNetCore.Mvc.FromBody] UpdateDeviceRequest body);
 
         /// <summary>
         /// Delete a device from the site
         /// </summary>
         /// <returns>Device deleted successfully</returns>
-        [Microsoft.AspNetCore.Mvc.HttpDelete, Microsoft.AspNetCore.Mvc.Route("site/{siteId}/device/{deviceId}", Name = "deleteDevice")]
-        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.IActionResult> DeleteDevice(string siteId, string deviceId);
+        [Microsoft.AspNetCore.Mvc.HttpDelete, Microsoft.AspNetCore.Mvc.Route("site/{siteId}/device/{deviceId}", Name = "deleteDeviceInSite")]
+        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.IActionResult> DeleteDeviceInSite(string siteId, string deviceId);
 
     }
 
@@ -226,36 +226,36 @@ namespace StorageManager.Service.Host.Controllers
         /// Get all devices in a module
         /// </summary>
         /// <returns>A list of devices in the module</returns>
-        [Microsoft.AspNetCore.Mvc.HttpGet, Microsoft.AspNetCore.Mvc.Route("site/{siteId}/area/{areaId}/module/{moduleId}/device", Name = "Module_GetAllDevices")]
-        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<System.Collections.Generic.ICollection<DeviceResponse>>> Module_GetAllDevices(string siteId, string areaId, string moduleId);
+        [Microsoft.AspNetCore.Mvc.HttpGet, Microsoft.AspNetCore.Mvc.Route("site/{siteId}/area/{areaId}/module/{moduleId}/device", Name = "getAllDevicesInModule")]
+        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<System.Collections.Generic.ICollection<DeviceResponse>>> GetAllDevicesInModule(string siteId, string areaId, string moduleId);
 
         /// <summary>
         /// Create a new device in a module
         /// </summary>
         /// <returns>Device created successfully</returns>
-        [Microsoft.AspNetCore.Mvc.HttpPost, Microsoft.AspNetCore.Mvc.Route("site/{siteId}/area/{areaId}/module/{moduleId}/device", Name = "Module_CreateDevice")]
-        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<DeviceResponse>> Module_CreateDevice(string siteId, string areaId, string moduleId, [Microsoft.AspNetCore.Mvc.FromBody] CreateDeviceRequest body);
+        [Microsoft.AspNetCore.Mvc.HttpPost, Microsoft.AspNetCore.Mvc.Route("site/{siteId}/area/{areaId}/module/{moduleId}/device", Name = "createDeviceInModule")]
+        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<DeviceResponse>> CreateDeviceInModule(string siteId, string areaId, string moduleId, [Microsoft.AspNetCore.Mvc.FromBody] CreateDeviceRequest body);
 
         /// <summary>
         /// Get details of a specific device in a module
         /// </summary>
         /// <returns>Details of the device</returns>
-        [Microsoft.AspNetCore.Mvc.HttpGet, Microsoft.AspNetCore.Mvc.Route("site/{siteId}/area/{areaId}/module/{moduleId}/device/{deviceId}", Name = "Module_GetDevice")]
-        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<DeviceResponse>> Module_GetDevice(string siteId, string areaId, string moduleId, string deviceId);
+        [Microsoft.AspNetCore.Mvc.HttpGet, Microsoft.AspNetCore.Mvc.Route("site/{siteId}/area/{areaId}/module/{moduleId}/device/{deviceId}", Name = "getDeviceByIdInModule")]
+        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<DeviceResponse>> GetDeviceByIdInModule(string siteId, string areaId, string moduleId, string deviceId);
 
         /// <summary>
         /// Update a device in a module
         /// </summary>
         /// <returns>Device updated successfully</returns>
-        [Microsoft.AspNetCore.Mvc.HttpPut, Microsoft.AspNetCore.Mvc.Route("site/{siteId}/area/{areaId}/module/{moduleId}/device/{deviceId}", Name = "Module_UpdateDevice")]
-        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<DeviceResponse>> Module_UpdateDevice(string siteId, string areaId, string moduleId, string deviceId, [Microsoft.AspNetCore.Mvc.FromBody] UpdateDeviceRequest body);
+        [Microsoft.AspNetCore.Mvc.HttpPut, Microsoft.AspNetCore.Mvc.Route("site/{siteId}/area/{areaId}/module/{moduleId}/device/{deviceId}", Name = "updateDeviceInModule")]
+        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<DeviceResponse>> UpdateDeviceInModule(string siteId, string areaId, string moduleId, string deviceId, [Microsoft.AspNetCore.Mvc.FromBody] UpdateDeviceRequest body);
 
         /// <summary>
         /// Delete a device in a module
         /// </summary>
         /// <returns>Device deleted successfully</returns>
-        [Microsoft.AspNetCore.Mvc.HttpDelete, Microsoft.AspNetCore.Mvc.Route("site/{siteId}/area/{areaId}/module/{moduleId}/device/{deviceId}", Name = "Module_DeleteDevice")]
-        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.IActionResult> Module_DeleteDevice(string siteId, string areaId, string moduleId, string deviceId);
+        [Microsoft.AspNetCore.Mvc.HttpDelete, Microsoft.AspNetCore.Mvc.Route("site/{siteId}/area/{areaId}/module/{moduleId}/device/{deviceId}", Name = "deleteDeviceInModule")]
+        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.IActionResult> DeleteDeviceInModule(string siteId, string areaId, string moduleId, string deviceId);
 
     }
 
@@ -268,36 +268,36 @@ namespace StorageManager.Service.Host.Controllers
         /// Get all devices
         /// </summary>
         /// <returns>List of all devices</returns>
-        [Microsoft.AspNetCore.Mvc.HttpGet, Microsoft.AspNetCore.Mvc.Route("device", Name = "Device_GetAll")]
-        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<System.Collections.Generic.ICollection<DeviceResponse>>> Device_GetAll();
+        [Microsoft.AspNetCore.Mvc.HttpGet, Microsoft.AspNetCore.Mvc.Route("device", Name = "getAllDevices")]
+        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<System.Collections.Generic.ICollection<DeviceResponse>>> GetAllDevices();
 
         /// <summary>
         /// Create a new device
         /// </summary>
         /// <returns>Device created successfully</returns>
-        [Microsoft.AspNetCore.Mvc.HttpPost, Microsoft.AspNetCore.Mvc.Route("device", Name = "Device_Create")]
-        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<DeviceResponse>> Device_Create([Microsoft.AspNetCore.Mvc.FromBody] CreateDeviceRequest body);
+        [Microsoft.AspNetCore.Mvc.HttpPost, Microsoft.AspNetCore.Mvc.Route("device", Name = "createDevice")]
+        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<DeviceResponse>> CreateDevice([Microsoft.AspNetCore.Mvc.FromBody] CreateDeviceRequest body);
 
         /// <summary>
         /// Get details of a specific device
         /// </summary>
         /// <returns>Details of the device</returns>
-        [Microsoft.AspNetCore.Mvc.HttpGet, Microsoft.AspNetCore.Mvc.Route("device/{deviceId}", Name = "Device_GetOne")]
-        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<DeviceResponse>> Device_GetOne(string deviceId);
+        [Microsoft.AspNetCore.Mvc.HttpGet, Microsoft.AspNetCore.Mvc.Route("device/{deviceId}", Name = "getDeviceById")]
+        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<DeviceResponse>> GetDeviceById(string deviceId);
 
         /// <summary>
         /// Update a specific device
         /// </summary>
         /// <returns>Device updated successfully</returns>
-        [Microsoft.AspNetCore.Mvc.HttpPut, Microsoft.AspNetCore.Mvc.Route("device/{deviceId}", Name = "Device_Update")]
-        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<DeviceResponse>> Device_Update(string deviceId, [Microsoft.AspNetCore.Mvc.FromBody] UpdateDeviceRequest body);
+        [Microsoft.AspNetCore.Mvc.HttpPut, Microsoft.AspNetCore.Mvc.Route("device/{deviceId}", Name = "updateDevice")]
+        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<DeviceResponse>> UpdateDevice(string deviceId, [Microsoft.AspNetCore.Mvc.FromBody] UpdateDeviceRequest body);
 
         /// <summary>
         /// Delete a specific device
         /// </summary>
         /// <returns>Device deleted successfully</returns>
-        [Microsoft.AspNetCore.Mvc.HttpDelete, Microsoft.AspNetCore.Mvc.Route("device/{deviceId}", Name = "Device_Delete")]
-        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.IActionResult> Device_Delete(string deviceId);
+        [Microsoft.AspNetCore.Mvc.HttpDelete, Microsoft.AspNetCore.Mvc.Route("device/{deviceId}", Name = "deleteDevice")]
+        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.IActionResult> DeleteDevice(string deviceId);
 
     }
 

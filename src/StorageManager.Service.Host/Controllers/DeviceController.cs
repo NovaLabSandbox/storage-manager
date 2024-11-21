@@ -7,27 +7,27 @@ namespace StorageManager.Service.Host.Controllers
     [ApiController]
     public class DeviceController : DeviceControllerBase
     {
-        public override Task<ActionResult<DeviceResponse>> Device_Create([FromBody] CreateDeviceRequest body)
+        public override Task<ActionResult<DeviceResponse>> CreateDevice([FromBody] CreateDeviceRequest body)
         {
             throw new NotImplementedException();
         }
 
-        public override Task<IActionResult> Device_Delete(string deviceId)
+        public override Task<IActionResult> DeleteDevice(string deviceId)
         {
             throw new NotImplementedException();
         }
 
-        public override Task<ActionResult<ICollection<DeviceResponse>>> Device_GetAll()
+        public override Task<ActionResult<ICollection<DeviceResponse>>> GetAllDevices()
         {
             throw new NotImplementedException();
         }
 
-        public override Task<ActionResult<DeviceResponse>> Device_GetOne(string deviceId)
+        public override Task<ActionResult<DeviceResponse>> GetDeviceById(string deviceId)
         {
             throw new NotImplementedException();
         }
 
-        public override Task<ActionResult<DeviceResponse>> Device_Update(string deviceId, [FromBody] UpdateDeviceRequest body)
+        public override Task<ActionResult<DeviceResponse>> UpdateDevice(string deviceId, [FromBody] UpdateDeviceRequest body)
         {
             throw new NotImplementedException();
         }
