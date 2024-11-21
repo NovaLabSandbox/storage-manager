@@ -6,11 +6,22 @@ info:
 servers:
   - url: http://localhost:5000/api
     description: Development server
+tags:
+  - name: Site
+    description: Operations related to top level site.
+  - name: Area
+    description: Operations related to areas within sites.
+  - name: Module
+    description: Operations related to modules within areas.
+  - name: Device
+    description: Operations related to devices within sites, areas, and modules.
 
 paths:
-  /sites:
+  /site:
     get:
       summary: Get all sites
+      tags:
+        - Site
       operationId: getAllSites
       responses:
         '200':
@@ -27,9 +38,10 @@ paths:
           description: Unauthorized
         '403':
           description: Forbidden
-
     post:
       summary: Create a new site
+      tags:
+        - Site
       operationId: createSite
       requestBody:
         required: true
@@ -53,9 +65,11 @@ paths:
         '500':
           description: Internal server error
 
-  /sites/{siteId}:
+  /site/{siteId}:
     get:
       summary: Get a single site by ID
+      tags:
+        - Site
       operationId: getSiteById
       parameters:
         - name: siteId
@@ -79,9 +93,10 @@ paths:
           description: Unauthorized
         '403':
           description: Forbidden
-
     put:
       summary: Update an existing site
+      tags:
+        - Site
       operationId: updateSite
       parameters:
         - name: siteId
@@ -113,9 +128,10 @@ paths:
           description: Forbidden
         '500':
           description: Internal server error
-
     delete:
       summary: Delete a site by ID
+      tags:
+        - Site
       operationId: deleteSite
       parameters:
         - name: siteId
@@ -136,7 +152,708 @@ paths:
         '500':
           description: Internal server error
 
+  /site/{siteId}/area:
+    get:
+      summary: Get all areas of a site
+      tags:
+        - Area
+      operationId: getAllAreas
+      parameters:
+        - $ref: '#/components/parameters/SiteId'
+      responses:
+        '200':
+          description: A list of areas in the site
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Area'
+        '404':
+          description: Site not found
+        '500':
+          description: Internal server error
+    post:
+      summary: Create a new area in the site
+      tags:
+        - Area
+      operationId: createArea
+      parameters:
+        - $ref: '#/components/parameters/SiteId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateAreaRequest'
+      responses:
+        '201':
+          description: Area created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Area'
+        '404':
+          description: Site not found
+        '500':
+          description: Internal server error
+
+  /site/{siteId}/area/{areaId}:
+    get:
+      summary: Get details of a specific area in a site
+      tags:
+        - Area
+      operationId: getAreaById
+      parameters:
+        - $ref: '#/components/parameters/SiteId'
+        - $ref: '#/components/parameters/AreaId'
+      responses:
+        '200':
+          description: Area details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Area'
+        '404':
+          description: Area or Site not found
+        '500':
+          description: Internal server error
+    put:
+      summary: Update an area in the site
+      tags:
+        - Area
+      operationId: updateArea
+      parameters:
+        - $ref: '#/components/parameters/SiteId'
+        - $ref: '#/components/parameters/AreaId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAreaRequest'
+      responses:
+        '200':
+          description: Area updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Area'
+        '404':
+          description: Area or Site not found
+        '500':
+          description: Internal server error
+    delete:
+      summary: Delete an area from the site
+      tags:
+        - Area
+      operationId: deleteArea
+      parameters:
+        - $ref: '#/components/parameters/SiteId'
+        - $ref: '#/components/parameters/AreaId'
+      responses:
+        '200':
+          description: Area deleted successfully
+        '404':
+          description: Area or Site not found
+        '500':
+          description: Internal server error
+
+  /site/{siteId}/device:
+    get:
+      summary: Get all devices of a site
+      tags:
+        - Site
+      operationId: getAllDevices
+      parameters:
+        - $ref: '#/components/parameters/SiteId'
+      responses:
+        '200':
+          description: A list of devices in the site
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Device'
+        '404':
+          description: Site not found
+        '500':
+          description: Internal server error
+    post:
+      summary: Create a new device in the site
+      tags:
+        - Site
+      operationId: createDevice
+      parameters:
+        - $ref: '#/components/parameters/SiteId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateDeviceRequest'
+      responses:
+        '201':
+          description: Device created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Device'
+        '404':
+          description: Site not found
+        '500':
+          description: Internal server error
+
+  /site/{siteId}/device/{deviceId}:
+    get:
+      summary: Get details of a specific device in a site
+      tags:
+        - Site
+      operationId: getDeviceById
+      parameters:
+        - $ref: '#/components/parameters/SiteId'
+        - $ref: '#/components/parameters/DeviceId'
+      responses:
+        '200':
+          description: Device details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Device'
+        '404':
+          description: Device or Site not found
+        '500':
+          description: Internal server error
+    put:
+      summary: Update a device in the site
+      tags:
+        - Site
+      operationId: updateDevice
+      parameters:
+        - $ref: '#/components/parameters/SiteId'
+        - $ref: '#/components/parameters/DeviceId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateDeviceRequest'
+      responses:
+        '200':
+          description: Device updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Device'
+        '404':
+          description: Device or Site not found
+        '500':
+          description: Internal server error
+    delete:
+      summary: Delete a device from the site
+      tags:
+        - Site
+      operationId: deleteDevice
+      parameters:
+        - $ref: '#/components/parameters/SiteId'
+        - $ref: '#/components/parameters/DeviceId'
+      responses:
+        '200':
+          description: Device deleted successfully
+        '404':
+          description: Device or Site not found
+        '500':
+          description: Internal server error
+
+  /site/{siteId}/area/{areaId}/module:
+    get:
+      summary: Get all modules of an area
+      tags:
+        - Module
+      operationId: getAllModules
+      parameters:
+        - $ref: '#/components/parameters/SiteId'
+        - $ref: '#/components/parameters/AreaId'
+      responses:
+        '200':
+          description: A list of modules in the area
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Module'
+        '404':
+          description: Site or Area not found
+        '500':
+          description: Internal server error
+    post:
+      summary: Create a new module in the area
+      tags:
+        - Module
+      operationId: createModule
+      parameters:
+        - $ref: '#/components/parameters/SiteId'
+        - $ref: '#/components/parameters/AreaId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateModuleRequest'
+      responses:
+        '201':
+          description: Module created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Module'
+        '404':
+          description: Site or Area not found
+        '500':
+          description: Internal server error
+
+  /site/{siteId}/area/{areaId}/module/{moduleId}:
+    get:
+      summary: Get details of a specific module in an area
+      tags:
+        - Module
+      operationId: getModuleById
+      parameters:
+        - $ref: '#/components/parameters/SiteId'
+        - $ref: '#/components/parameters/AreaId'
+        - $ref: '#/components/parameters/ModuleId'
+      responses:
+        '200':
+          description: Module details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Module'
+        '404':
+          description: Module, Area, or Site not found
+        '500':
+          description: Internal server error
+    put:
+      summary: Update a module in the area
+      tags:
+        - Module
+      operationId: updateModule
+      parameters:
+        - $ref: '#/components/parameters/SiteId'
+        - $ref: '#/components/parameters/AreaId'
+        - $ref: '#/components/parameters/ModuleId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateModuleRequest'
+      responses:
+        '200':
+          description: Module updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Module'
+        '404':
+          description: Module, Area, or Site not found
+        '500':
+          description: Internal server error
+    delete:
+      summary: Delete a module from the area
+      tags:
+        - Module
+      operationId: deleteModule
+      parameters:
+        - $ref: '#/components/parameters/SiteId'
+        - $ref: '#/components/parameters/AreaId'
+        - $ref: '#/components/parameters/ModuleId'
+      responses:
+        '200':
+          description: Module deleted successfully
+        '404':
+          description: Module, Area, or Site not found
+        '500':
+          description: Internal server error
+
+  /site/{siteId}/area/{areaId}/device:
+    get:
+      summary: Get all devices of an area
+      tags:
+        - Area
+      operationId: getAllDevicesInArea
+      parameters:
+        - $ref: '#/components/parameters/SiteId'
+        - $ref: '#/components/parameters/AreaId'
+      responses:
+        '200':
+          description: A list of devices in the area
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Device'
+        '404':
+          description: Site or Area not found
+        '500':
+          description: Internal server error
+    post:
+      summary: Create a new device in the area
+      tags:
+        - Area
+      operationId: createDeviceInArea
+      parameters:
+        - $ref: '#/components/parameters/SiteId'
+        - $ref: '#/components/parameters/AreaId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateDeviceRequest'
+      responses:
+        '201':
+          description: Device created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Device'
+        '404':
+          description: Site or Area not found
+        '500':
+          description: Internal server error
+
+  /site/{siteId}/area/{areaId}/device/{deviceId}:
+    get:
+      summary: Get details of a specific device in an area
+      tags:
+        - Area
+      operationId: getDeviceByIdInArea
+      parameters:
+        - $ref: '#/components/parameters/SiteId'
+        - $ref: '#/components/parameters/AreaId'
+        - $ref: '#/components/parameters/DeviceId'
+      responses:
+        '200':
+          description: Device details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Device'
+        '404':
+          description: Device, Area, or Site not found
+        '500':
+          description: Internal server error
+    put:
+      summary: Update a device in the area
+      tags:
+        - Area
+      operationId: updateDeviceInArea
+      parameters:
+        - $ref: '#/components/parameters/SiteId'
+        - $ref: '#/components/parameters/AreaId'
+        - $ref: '#/components/parameters/DeviceId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateDeviceRequest'
+      responses:
+        '200':
+          description: Device updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Device'
+        '404':
+          description: Device, Area, or Site not found
+        '500':
+          description: Internal server error
+    delete:
+      summary: Delete a device from the area
+      tags:
+        - Area
+      operationId: deleteDeviceFromArea
+      parameters:
+        - $ref: '#/components/parameters/SiteId'
+        - $ref: '#/components/parameters/AreaId'
+        - $ref: '#/components/parameters/DeviceId'
+      responses:
+        '200':
+          description: Device deleted successfully
+        '404':
+          description: Device, Area, or Site not found
+        '500':
+          description: Internal server error
+
+  /site/{siteId}/area/{areaId}/module/{moduleId}/device:
+    get:
+      summary: Get all devices in a module
+      operationId: Module_GetAllDevices
+      tags:
+        - Module
+      parameters:
+        - $ref: "#/components/parameters/SiteId"
+        - $ref: "#/components/parameters/AreaId"
+        - $ref: "#/components/parameters/ModuleId"
+      responses:
+        "200":
+          description: A list of devices in the module
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Device"
+        '404':
+          description: Site or Area not found
+        '500':
+          description: Internal server error
+    post:
+      summary: Create a new device in a module
+      operationId: Module_CreateDevice
+      tags:
+        - Module
+      parameters:
+        - $ref: "#/components/parameters/SiteId"
+        - $ref: "#/components/parameters/AreaId"
+        - $ref: "#/components/parameters/ModuleId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateDeviceRequest"
+      responses:
+        "201":
+          description: Device created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Device"
+        '404':
+          description: Site or Area not found
+        '500':
+          description: Internal server error
+
+  /site/{siteId}/area/{areaId}/module/{moduleId}/device/{deviceId}:
+    get:
+      summary: Get details of a specific device in a module
+      operationId: Module_GetDevice
+      tags:
+        - Module
+      parameters:
+        - $ref: "#/components/parameters/SiteId"
+        - $ref: "#/components/parameters/AreaId"
+        - $ref: "#/components/parameters/ModuleId"
+        - $ref: "#/components/parameters/DeviceId"
+      responses:
+        "200":
+          description: Details of the device
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Device"
+        '404':
+          description: Site or Area not found
+        '500':
+          description: Internal server error
+    put:
+      summary: Update a device in a module
+      operationId: Module_UpdateDevice
+      tags:
+        - Module
+      parameters:
+        - $ref: "#/components/parameters/SiteId"
+        - $ref: "#/components/parameters/AreaId"
+        - $ref: "#/components/parameters/ModuleId"
+        - $ref: "#/components/parameters/DeviceId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateDeviceRequest"
+      responses:
+        "200":
+          description: Device updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Device"
+        '404':
+          description: Site or Area not found
+        '500':
+          description: Internal server error
+    delete:
+      summary: Delete a device in a module
+      operationId: Module_DeleteDevice
+      tags:
+        - Module
+      parameters:
+        - $ref: "#/components/parameters/SiteId"
+        - $ref: "#/components/parameters/AreaId"
+        - $ref: "#/components/parameters/ModuleId"
+        - $ref: "#/components/parameters/DeviceId"
+      responses:
+        "204":
+          description: Device deleted successfully
+        '404':
+          description: Site or Area not found
+        '500':
+          description: Internal server error
+
+  /device:
+    get:
+      summary: Get all devices
+      operationId: Device_GetAll
+      tags:
+        - Device
+      responses:
+        "200":
+          description: List of all devices
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Device"
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+    post:
+      summary: Create a new device
+      operationId: Device_Create
+      tags:
+        - Device
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateDeviceRequest"
+      responses:
+        "201":
+          description: Device created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Device"
+        "400":
+          description: Bad Request
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+
+  /device/{deviceId}:
+    get:
+      summary: Get details of a specific device
+      operationId: Device_GetOne
+      tags:
+        - Device
+      parameters:
+        - $ref: "#/components/parameters/DeviceId"
+      responses:
+        "200":
+          description: Details of the device
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Device"
+        "404":
+          description: Device not found
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+    put:
+      summary: Update a specific device
+      operationId: Device_Update
+      tags:
+        - Device
+      parameters:
+        - $ref: "#/components/parameters/DeviceId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateDeviceRequest"
+      responses:
+        "200":
+          description: Device updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Device"
+        "400":
+          description: Bad Request
+        "404":
+          description: Device not found
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+    delete:
+      summary: Delete a specific device
+      operationId: Device_Delete
+      tags:
+        - Device
+      parameters:
+        - $ref: "#/components/parameters/DeviceId"
+      responses:
+        "204":
+          description: Device deleted successfully
+        "404":
+          description: Device not found
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+
 components:
+  parameters:
+    SiteId:
+      name: siteId
+      in: path
+      required: true
+      schema:
+        type: string
+    AreaId:
+      name: areaId
+      in: path
+      required: true
+      schema:
+        type: string
+    ModuleId:
+      name: moduleId
+      in: path
+      required: true
+      schema:
+        type: string
+    DeviceId:
+      name: deviceId
+      in: path
+      required: true
+      schema:
+        type: string
+
   schemas:
     Site:
       type: object
@@ -181,3 +898,87 @@ components:
         description:
           type: string
           description: The updated description of the site
+
+    Area:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+
+    CreateAreaRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+    
+    UpdateAreaRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+    
+    Device:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+        description:
+          type: string
+
+    CreateDeviceRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        type:
+          type: string
+        description:
+          type: string
+
+    UpdateDeviceRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        type:
+          type: string
+        description:
+          type: string
+
+    Module:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+
+    CreateModuleRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+
+    UpdateModuleRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string

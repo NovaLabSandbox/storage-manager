@@ -3,7 +3,8 @@ using Aspire.Hosting;
 var builder = DistributedApplication.CreateBuilder(args);
 
 var mongodb = builder.AddMongoDB("database")
-                        .WithMongoExpress();
+                        .WithMongoExpress()
+                        .WithDataVolume("mongodb");
 
 var cache = builder.AddRedis("cache")
                         .WithRedisInsight();
@@ -32,6 +33,7 @@ var backend = builder.AddProject<Projects.StorageManager_Service_Host>("backend"
 
 
 var frontend = builder.AddProject<Projects.StorageManager_Web>("frontend")
+                        .WithDaprSidecar()
                         .WithReference(backend)
                         .WaitFor(backend);
 

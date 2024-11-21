@@ -28,20 +28,20 @@ namespace StorageManager.Service.Host.Controllers
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
     [Microsoft.AspNetCore.Mvc.Route("api")]
 
-    public abstract class StorageManagerControllerBase : CoreController
+    public abstract class SiteControllerBase : CoreController
     {
         /// <summary>
         /// Get all sites
         /// </summary>
         /// <returns>Successfully retrieved all sites</returns>
-        [Microsoft.AspNetCore.Mvc.HttpGet, Microsoft.AspNetCore.Mvc.Route("sites", Name = "getAllSites")]
+        [Microsoft.AspNetCore.Mvc.HttpGet, Microsoft.AspNetCore.Mvc.Route("site", Name = "getAllSites")]
         public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<System.Collections.Generic.ICollection<Site>>> GetAllSites();
 
         /// <summary>
         /// Create a new site
         /// </summary>
         /// <returns>Site successfully created</returns>
-        [Microsoft.AspNetCore.Mvc.HttpPost, Microsoft.AspNetCore.Mvc.Route("sites", Name = "createSite")]
+        [Microsoft.AspNetCore.Mvc.HttpPost, Microsoft.AspNetCore.Mvc.Route("site", Name = "createSite")]
         public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<Site>> CreateSite([Microsoft.AspNetCore.Mvc.FromBody] SiteCreateRequest body);
 
         /// <summary>
@@ -49,7 +49,7 @@ namespace StorageManager.Service.Host.Controllers
         /// </summary>
         /// <param name="siteId">The ID of the site</param>
         /// <returns>Successfully retrieved site</returns>
-        [Microsoft.AspNetCore.Mvc.HttpGet, Microsoft.AspNetCore.Mvc.Route("sites/{siteId}", Name = "getSiteById")]
+        [Microsoft.AspNetCore.Mvc.HttpGet, Microsoft.AspNetCore.Mvc.Route("site/{siteId}", Name = "getSiteById")]
         public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<Site>> GetSiteById(string siteId);
 
         /// <summary>
@@ -57,7 +57,7 @@ namespace StorageManager.Service.Host.Controllers
         /// </summary>
         /// <param name="siteId">The ID of the site to update</param>
         /// <returns>Successfully updated site</returns>
-        [Microsoft.AspNetCore.Mvc.HttpPut, Microsoft.AspNetCore.Mvc.Route("sites/{siteId}", Name = "updateSite")]
+        [Microsoft.AspNetCore.Mvc.HttpPut, Microsoft.AspNetCore.Mvc.Route("site/{siteId}", Name = "updateSite")]
         public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<Site>> UpdateSite(string siteId, [Microsoft.AspNetCore.Mvc.FromBody] SiteUpdateRequest body);
 
         /// <summary>
@@ -65,8 +65,239 @@ namespace StorageManager.Service.Host.Controllers
         /// </summary>
         /// <param name="siteId">The ID of the site to delete</param>
         /// <returns>Successfully deleted site</returns>
-        [Microsoft.AspNetCore.Mvc.HttpDelete, Microsoft.AspNetCore.Mvc.Route("sites/{siteId}", Name = "deleteSite")]
+        [Microsoft.AspNetCore.Mvc.HttpDelete, Microsoft.AspNetCore.Mvc.Route("site/{siteId}", Name = "deleteSite")]
         public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.IActionResult> DeleteSite(string siteId);
+
+        /// <summary>
+        /// Get all devices of a site
+        /// </summary>
+        /// <returns>A list of devices in the site</returns>
+        [Microsoft.AspNetCore.Mvc.HttpGet, Microsoft.AspNetCore.Mvc.Route("site/{siteId}/device", Name = "getAllDevices")]
+        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<System.Collections.Generic.ICollection<Device>>> GetAllDevices(string siteId);
+
+        /// <summary>
+        /// Create a new device in the site
+        /// </summary>
+        /// <returns>Device created successfully</returns>
+        [Microsoft.AspNetCore.Mvc.HttpPost, Microsoft.AspNetCore.Mvc.Route("site/{siteId}/device", Name = "createDevice")]
+        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<Device>> CreateDevice(string siteId, [Microsoft.AspNetCore.Mvc.FromBody] CreateDeviceRequest body);
+
+        /// <summary>
+        /// Get details of a specific device in a site
+        /// </summary>
+        /// <returns>Device details</returns>
+        [Microsoft.AspNetCore.Mvc.HttpGet, Microsoft.AspNetCore.Mvc.Route("site/{siteId}/device/{deviceId}", Name = "getDeviceById")]
+        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<Device>> GetDeviceById(string siteId, string deviceId);
+
+        /// <summary>
+        /// Update a device in the site
+        /// </summary>
+        /// <returns>Device updated successfully</returns>
+        [Microsoft.AspNetCore.Mvc.HttpPut, Microsoft.AspNetCore.Mvc.Route("site/{siteId}/device/{deviceId}", Name = "updateDevice")]
+        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<Device>> UpdateDevice(string siteId, string deviceId, [Microsoft.AspNetCore.Mvc.FromBody] UpdateDeviceRequest body);
+
+        /// <summary>
+        /// Delete a device from the site
+        /// </summary>
+        /// <returns>Device deleted successfully</returns>
+        [Microsoft.AspNetCore.Mvc.HttpDelete, Microsoft.AspNetCore.Mvc.Route("site/{siteId}/device/{deviceId}", Name = "deleteDevice")]
+        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.IActionResult> DeleteDevice(string siteId, string deviceId);
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NSwag", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    [Microsoft.AspNetCore.Mvc.Route("api")]
+
+    public abstract class AreaControllerBase : CoreController
+    {
+        /// <summary>
+        /// Get all areas of a site
+        /// </summary>
+        /// <returns>A list of areas in the site</returns>
+        [Microsoft.AspNetCore.Mvc.HttpGet, Microsoft.AspNetCore.Mvc.Route("site/{siteId}/area", Name = "getAllAreas")]
+        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<System.Collections.Generic.ICollection<Area>>> GetAllAreas(string siteId);
+
+        /// <summary>
+        /// Create a new area in the site
+        /// </summary>
+        /// <returns>Area created successfully</returns>
+        [Microsoft.AspNetCore.Mvc.HttpPost, Microsoft.AspNetCore.Mvc.Route("site/{siteId}/area", Name = "createArea")]
+        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<Area>> CreateArea(string siteId, [Microsoft.AspNetCore.Mvc.FromBody] CreateAreaRequest body);
+
+        /// <summary>
+        /// Get details of a specific area in a site
+        /// </summary>
+        /// <returns>Area details</returns>
+        [Microsoft.AspNetCore.Mvc.HttpGet, Microsoft.AspNetCore.Mvc.Route("site/{siteId}/area/{areaId}", Name = "getAreaById")]
+        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<Area>> GetAreaById(string siteId, string areaId);
+
+        /// <summary>
+        /// Update an area in the site
+        /// </summary>
+        /// <returns>Area updated successfully</returns>
+        [Microsoft.AspNetCore.Mvc.HttpPut, Microsoft.AspNetCore.Mvc.Route("site/{siteId}/area/{areaId}", Name = "updateArea")]
+        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<Area>> UpdateArea(string siteId, string areaId, [Microsoft.AspNetCore.Mvc.FromBody] UpdateAreaRequest body);
+
+        /// <summary>
+        /// Delete an area from the site
+        /// </summary>
+        /// <returns>Area deleted successfully</returns>
+        [Microsoft.AspNetCore.Mvc.HttpDelete, Microsoft.AspNetCore.Mvc.Route("site/{siteId}/area/{areaId}", Name = "deleteArea")]
+        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.IActionResult> DeleteArea(string siteId, string areaId);
+
+        /// <summary>
+        /// Get all devices of an area
+        /// </summary>
+        /// <returns>A list of devices in the area</returns>
+        [Microsoft.AspNetCore.Mvc.HttpGet, Microsoft.AspNetCore.Mvc.Route("site/{siteId}/area/{areaId}/device", Name = "getAllDevicesInArea")]
+        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<System.Collections.Generic.ICollection<Device>>> GetAllDevicesInArea(string siteId, string areaId);
+
+        /// <summary>
+        /// Create a new device in the area
+        /// </summary>
+        /// <returns>Device created successfully</returns>
+        [Microsoft.AspNetCore.Mvc.HttpPost, Microsoft.AspNetCore.Mvc.Route("site/{siteId}/area/{areaId}/device", Name = "createDeviceInArea")]
+        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<Device>> CreateDeviceInArea(string siteId, string areaId, [Microsoft.AspNetCore.Mvc.FromBody] CreateDeviceRequest body);
+
+        /// <summary>
+        /// Get details of a specific device in an area
+        /// </summary>
+        /// <returns>Device details</returns>
+        [Microsoft.AspNetCore.Mvc.HttpGet, Microsoft.AspNetCore.Mvc.Route("site/{siteId}/area/{areaId}/device/{deviceId}", Name = "getDeviceByIdInArea")]
+        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<Device>> GetDeviceByIdInArea(string siteId, string areaId, string deviceId);
+
+        /// <summary>
+        /// Update a device in the area
+        /// </summary>
+        /// <returns>Device updated successfully</returns>
+        [Microsoft.AspNetCore.Mvc.HttpPut, Microsoft.AspNetCore.Mvc.Route("site/{siteId}/area/{areaId}/device/{deviceId}", Name = "updateDeviceInArea")]
+        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<Device>> UpdateDeviceInArea(string siteId, string areaId, string deviceId, [Microsoft.AspNetCore.Mvc.FromBody] UpdateDeviceRequest body);
+
+        /// <summary>
+        /// Delete a device from the area
+        /// </summary>
+        /// <returns>Device deleted successfully</returns>
+        [Microsoft.AspNetCore.Mvc.HttpDelete, Microsoft.AspNetCore.Mvc.Route("site/{siteId}/area/{areaId}/device/{deviceId}", Name = "deleteDeviceFromArea")]
+        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.IActionResult> DeleteDeviceFromArea(string siteId, string areaId, string deviceId);
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NSwag", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    [Microsoft.AspNetCore.Mvc.Route("api")]
+
+    public abstract class ModuleControllerBase : CoreController
+    {
+        /// <summary>
+        /// Get all modules of an area
+        /// </summary>
+        /// <returns>A list of modules in the area</returns>
+        [Microsoft.AspNetCore.Mvc.HttpGet, Microsoft.AspNetCore.Mvc.Route("site/{siteId}/area/{areaId}/module", Name = "getAllModules")]
+        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<System.Collections.Generic.ICollection<Module>>> GetAllModules(string siteId, string areaId);
+
+        /// <summary>
+        /// Create a new module in the area
+        /// </summary>
+        /// <returns>Module created successfully</returns>
+        [Microsoft.AspNetCore.Mvc.HttpPost, Microsoft.AspNetCore.Mvc.Route("site/{siteId}/area/{areaId}/module", Name = "createModule")]
+        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<Module>> CreateModule(string siteId, string areaId, [Microsoft.AspNetCore.Mvc.FromBody] CreateModuleRequest body);
+
+        /// <summary>
+        /// Get details of a specific module in an area
+        /// </summary>
+        /// <returns>Module details</returns>
+        [Microsoft.AspNetCore.Mvc.HttpGet, Microsoft.AspNetCore.Mvc.Route("site/{siteId}/area/{areaId}/module/{moduleId}", Name = "getModuleById")]
+        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<Module>> GetModuleById(string siteId, string areaId, string moduleId);
+
+        /// <summary>
+        /// Update a module in the area
+        /// </summary>
+        /// <returns>Module updated successfully</returns>
+        [Microsoft.AspNetCore.Mvc.HttpPut, Microsoft.AspNetCore.Mvc.Route("site/{siteId}/area/{areaId}/module/{moduleId}", Name = "updateModule")]
+        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<Module>> UpdateModule(string siteId, string areaId, string moduleId, [Microsoft.AspNetCore.Mvc.FromBody] UpdateModuleRequest body);
+
+        /// <summary>
+        /// Delete a module from the area
+        /// </summary>
+        /// <returns>Module deleted successfully</returns>
+        [Microsoft.AspNetCore.Mvc.HttpDelete, Microsoft.AspNetCore.Mvc.Route("site/{siteId}/area/{areaId}/module/{moduleId}", Name = "deleteModule")]
+        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.IActionResult> DeleteModule(string siteId, string areaId, string moduleId);
+
+        /// <summary>
+        /// Get all devices in a module
+        /// </summary>
+        /// <returns>A list of devices in the module</returns>
+        [Microsoft.AspNetCore.Mvc.HttpGet, Microsoft.AspNetCore.Mvc.Route("site/{siteId}/area/{areaId}/module/{moduleId}/device", Name = "Module_GetAllDevices")]
+        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<System.Collections.Generic.ICollection<Device>>> Module_GetAllDevices(string siteId, string areaId, string moduleId);
+
+        /// <summary>
+        /// Create a new device in a module
+        /// </summary>
+        /// <returns>Device created successfully</returns>
+        [Microsoft.AspNetCore.Mvc.HttpPost, Microsoft.AspNetCore.Mvc.Route("site/{siteId}/area/{areaId}/module/{moduleId}/device", Name = "Module_CreateDevice")]
+        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<Device>> Module_CreateDevice(string siteId, string areaId, string moduleId, [Microsoft.AspNetCore.Mvc.FromBody] CreateDeviceRequest body);
+
+        /// <summary>
+        /// Get details of a specific device in a module
+        /// </summary>
+        /// <returns>Details of the device</returns>
+        [Microsoft.AspNetCore.Mvc.HttpGet, Microsoft.AspNetCore.Mvc.Route("site/{siteId}/area/{areaId}/module/{moduleId}/device/{deviceId}", Name = "Module_GetDevice")]
+        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<Device>> Module_GetDevice(string siteId, string areaId, string moduleId, string deviceId);
+
+        /// <summary>
+        /// Update a device in a module
+        /// </summary>
+        /// <returns>Device updated successfully</returns>
+        [Microsoft.AspNetCore.Mvc.HttpPut, Microsoft.AspNetCore.Mvc.Route("site/{siteId}/area/{areaId}/module/{moduleId}/device/{deviceId}", Name = "Module_UpdateDevice")]
+        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<Device>> Module_UpdateDevice(string siteId, string areaId, string moduleId, string deviceId, [Microsoft.AspNetCore.Mvc.FromBody] UpdateDeviceRequest body);
+
+        /// <summary>
+        /// Delete a device in a module
+        /// </summary>
+        /// <returns>Device deleted successfully</returns>
+        [Microsoft.AspNetCore.Mvc.HttpDelete, Microsoft.AspNetCore.Mvc.Route("site/{siteId}/area/{areaId}/module/{moduleId}/device/{deviceId}", Name = "Module_DeleteDevice")]
+        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.IActionResult> Module_DeleteDevice(string siteId, string areaId, string moduleId, string deviceId);
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NSwag", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    [Microsoft.AspNetCore.Mvc.Route("api")]
+
+    public abstract class DeviceControllerBase : CoreController
+    {
+        /// <summary>
+        /// Get all devices
+        /// </summary>
+        /// <returns>List of all devices</returns>
+        [Microsoft.AspNetCore.Mvc.HttpGet, Microsoft.AspNetCore.Mvc.Route("device", Name = "Device_GetAll")]
+        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<System.Collections.Generic.ICollection<Device>>> Device_GetAll();
+
+        /// <summary>
+        /// Create a new device
+        /// </summary>
+        /// <returns>Device created successfully</returns>
+        [Microsoft.AspNetCore.Mvc.HttpPost, Microsoft.AspNetCore.Mvc.Route("device", Name = "Device_Create")]
+        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<Device>> Device_Create([Microsoft.AspNetCore.Mvc.FromBody] CreateDeviceRequest body);
+
+        /// <summary>
+        /// Get details of a specific device
+        /// </summary>
+        /// <returns>Details of the device</returns>
+        [Microsoft.AspNetCore.Mvc.HttpGet, Microsoft.AspNetCore.Mvc.Route("device/{deviceId}", Name = "Device_GetOne")]
+        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<Device>> Device_GetOne(string deviceId);
+
+        /// <summary>
+        /// Update a specific device
+        /// </summary>
+        /// <returns>Device updated successfully</returns>
+        [Microsoft.AspNetCore.Mvc.HttpPut, Microsoft.AspNetCore.Mvc.Route("device/{deviceId}", Name = "Device_Update")]
+        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<Device>> Device_Update(string deviceId, [Microsoft.AspNetCore.Mvc.FromBody] UpdateDeviceRequest body);
+
+        /// <summary>
+        /// Delete a specific device
+        /// </summary>
+        /// <returns>Device deleted successfully</returns>
+        [Microsoft.AspNetCore.Mvc.HttpDelete, Microsoft.AspNetCore.Mvc.Route("device/{deviceId}", Name = "Device_Delete")]
+        public abstract System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.IActionResult> Device_Delete(string deviceId);
 
     }
 

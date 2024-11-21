@@ -23,7 +23,7 @@ namespace StorageManager.Client.Contracts
     using System = global::System;
 
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial interface IStorageManagerClient
+    public partial interface ISiteClient
     {
         /// <summary>
         /// Get all sites
@@ -105,6 +105,471 @@ namespace StorageManager.Client.Contracts
         /// <returns>Successfully deleted site</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         System.Threading.Tasks.Task DeleteSiteAsync(string siteId, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Get all devices of a site
+        /// </summary>
+        /// <returns>A list of devices in the site</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Device>> GetAllDevicesAsync(string siteId);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Get all devices of a site
+        /// </summary>
+        /// <returns>A list of devices in the site</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Device>> GetAllDevicesAsync(string siteId, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Create a new device in the site
+        /// </summary>
+        /// <returns>Device created successfully</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Device> CreateDeviceAsync(string siteId, CreateDeviceRequest body);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Create a new device in the site
+        /// </summary>
+        /// <returns>Device created successfully</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Device> CreateDeviceAsync(string siteId, CreateDeviceRequest body, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Get details of a specific device in a site
+        /// </summary>
+        /// <returns>Device details</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Device> GetDeviceByIdAsync(string siteId, string deviceId);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Get details of a specific device in a site
+        /// </summary>
+        /// <returns>Device details</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Device> GetDeviceByIdAsync(string siteId, string deviceId, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Update a device in the site
+        /// </summary>
+        /// <returns>Device updated successfully</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Device> UpdateDeviceAsync(string siteId, string deviceId, UpdateDeviceRequest body);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Update a device in the site
+        /// </summary>
+        /// <returns>Device updated successfully</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Device> UpdateDeviceAsync(string siteId, string deviceId, UpdateDeviceRequest body, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Delete a device from the site
+        /// </summary>
+        /// <returns>Device deleted successfully</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task DeleteDeviceAsync(string siteId, string deviceId);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Delete a device from the site
+        /// </summary>
+        /// <returns>Device deleted successfully</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task DeleteDeviceAsync(string siteId, string deviceId, System.Threading.CancellationToken cancellationToken);
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NSwag", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial interface IAreaClient
+    {
+        /// <summary>
+        /// Get all areas of a site
+        /// </summary>
+        /// <returns>A list of areas in the site</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Area>> GetAllAreasAsync(string siteId);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Get all areas of a site
+        /// </summary>
+        /// <returns>A list of areas in the site</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Area>> GetAllAreasAsync(string siteId, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Create a new area in the site
+        /// </summary>
+        /// <returns>Area created successfully</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Area> CreateAreaAsync(string siteId, CreateAreaRequest body);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Create a new area in the site
+        /// </summary>
+        /// <returns>Area created successfully</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Area> CreateAreaAsync(string siteId, CreateAreaRequest body, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Get details of a specific area in a site
+        /// </summary>
+        /// <returns>Area details</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Area> GetAreaByIdAsync(string siteId, string areaId);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Get details of a specific area in a site
+        /// </summary>
+        /// <returns>Area details</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Area> GetAreaByIdAsync(string siteId, string areaId, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Update an area in the site
+        /// </summary>
+        /// <returns>Area updated successfully</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Area> UpdateAreaAsync(string siteId, string areaId, UpdateAreaRequest body);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Update an area in the site
+        /// </summary>
+        /// <returns>Area updated successfully</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Area> UpdateAreaAsync(string siteId, string areaId, UpdateAreaRequest body, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Delete an area from the site
+        /// </summary>
+        /// <returns>Area deleted successfully</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task DeleteAreaAsync(string siteId, string areaId);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Delete an area from the site
+        /// </summary>
+        /// <returns>Area deleted successfully</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task DeleteAreaAsync(string siteId, string areaId, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Get all devices of an area
+        /// </summary>
+        /// <returns>A list of devices in the area</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Device>> GetAllDevicesInAreaAsync(string siteId, string areaId);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Get all devices of an area
+        /// </summary>
+        /// <returns>A list of devices in the area</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Device>> GetAllDevicesInAreaAsync(string siteId, string areaId, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Create a new device in the area
+        /// </summary>
+        /// <returns>Device created successfully</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Device> CreateDeviceInAreaAsync(string siteId, string areaId, CreateDeviceRequest body);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Create a new device in the area
+        /// </summary>
+        /// <returns>Device created successfully</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Device> CreateDeviceInAreaAsync(string siteId, string areaId, CreateDeviceRequest body, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Get details of a specific device in an area
+        /// </summary>
+        /// <returns>Device details</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Device> GetDeviceByIdInAreaAsync(string siteId, string areaId, string deviceId);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Get details of a specific device in an area
+        /// </summary>
+        /// <returns>Device details</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Device> GetDeviceByIdInAreaAsync(string siteId, string areaId, string deviceId, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Update a device in the area
+        /// </summary>
+        /// <returns>Device updated successfully</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Device> UpdateDeviceInAreaAsync(string siteId, string areaId, string deviceId, UpdateDeviceRequest body);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Update a device in the area
+        /// </summary>
+        /// <returns>Device updated successfully</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Device> UpdateDeviceInAreaAsync(string siteId, string areaId, string deviceId, UpdateDeviceRequest body, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Delete a device from the area
+        /// </summary>
+        /// <returns>Device deleted successfully</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task DeleteDeviceFromAreaAsync(string siteId, string areaId, string deviceId);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Delete a device from the area
+        /// </summary>
+        /// <returns>Device deleted successfully</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task DeleteDeviceFromAreaAsync(string siteId, string areaId, string deviceId, System.Threading.CancellationToken cancellationToken);
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NSwag", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial interface IModuleClient
+    {
+        /// <summary>
+        /// Get all modules of an area
+        /// </summary>
+        /// <returns>A list of modules in the area</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Module>> GetAllModulesAsync(string siteId, string areaId);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Get all modules of an area
+        /// </summary>
+        /// <returns>A list of modules in the area</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Module>> GetAllModulesAsync(string siteId, string areaId, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Create a new module in the area
+        /// </summary>
+        /// <returns>Module created successfully</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Module> CreateModuleAsync(string siteId, string areaId, CreateModuleRequest body);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Create a new module in the area
+        /// </summary>
+        /// <returns>Module created successfully</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Module> CreateModuleAsync(string siteId, string areaId, CreateModuleRequest body, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Get details of a specific module in an area
+        /// </summary>
+        /// <returns>Module details</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Module> GetModuleByIdAsync(string siteId, string areaId, string moduleId);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Get details of a specific module in an area
+        /// </summary>
+        /// <returns>Module details</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Module> GetModuleByIdAsync(string siteId, string areaId, string moduleId, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Update a module in the area
+        /// </summary>
+        /// <returns>Module updated successfully</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Module> UpdateModuleAsync(string siteId, string areaId, string moduleId, UpdateModuleRequest body);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Update a module in the area
+        /// </summary>
+        /// <returns>Module updated successfully</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Module> UpdateModuleAsync(string siteId, string areaId, string moduleId, UpdateModuleRequest body, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Delete a module from the area
+        /// </summary>
+        /// <returns>Module deleted successfully</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task DeleteModuleAsync(string siteId, string areaId, string moduleId);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Delete a module from the area
+        /// </summary>
+        /// <returns>Module deleted successfully</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task DeleteModuleAsync(string siteId, string areaId, string moduleId, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Get all devices in a module
+        /// </summary>
+        /// <returns>A list of devices in the module</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Device>> Module_GetAllDevicesAsync(string siteId, string areaId, string moduleId);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Get all devices in a module
+        /// </summary>
+        /// <returns>A list of devices in the module</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Device>> Module_GetAllDevicesAsync(string siteId, string areaId, string moduleId, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Create a new device in a module
+        /// </summary>
+        /// <returns>Device created successfully</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Device> Module_CreateDeviceAsync(string siteId, string areaId, string moduleId, CreateDeviceRequest body);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Create a new device in a module
+        /// </summary>
+        /// <returns>Device created successfully</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Device> Module_CreateDeviceAsync(string siteId, string areaId, string moduleId, CreateDeviceRequest body, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Get details of a specific device in a module
+        /// </summary>
+        /// <returns>Details of the device</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Device> Module_GetDeviceAsync(string siteId, string areaId, string moduleId, string deviceId);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Get details of a specific device in a module
+        /// </summary>
+        /// <returns>Details of the device</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Device> Module_GetDeviceAsync(string siteId, string areaId, string moduleId, string deviceId, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Update a device in a module
+        /// </summary>
+        /// <returns>Device updated successfully</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Device> Module_UpdateDeviceAsync(string siteId, string areaId, string moduleId, string deviceId, UpdateDeviceRequest body);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Update a device in a module
+        /// </summary>
+        /// <returns>Device updated successfully</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Device> Module_UpdateDeviceAsync(string siteId, string areaId, string moduleId, string deviceId, UpdateDeviceRequest body, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Delete a device in a module
+        /// </summary>
+        /// <returns>Device deleted successfully</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task Module_DeleteDeviceAsync(string siteId, string areaId, string moduleId, string deviceId);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Delete a device in a module
+        /// </summary>
+        /// <returns>Device deleted successfully</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task Module_DeleteDeviceAsync(string siteId, string areaId, string moduleId, string deviceId, System.Threading.CancellationToken cancellationToken);
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NSwag", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial interface IDeviceClient
+    {
+        /// <summary>
+        /// Get all devices
+        /// </summary>
+        /// <returns>List of all devices</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Device>> Device_GetAllAsync();
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Get all devices
+        /// </summary>
+        /// <returns>List of all devices</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Device>> Device_GetAllAsync(System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Create a new device
+        /// </summary>
+        /// <returns>Device created successfully</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Device> Device_CreateAsync(CreateDeviceRequest body);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Create a new device
+        /// </summary>
+        /// <returns>Device created successfully</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Device> Device_CreateAsync(CreateDeviceRequest body, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Get details of a specific device
+        /// </summary>
+        /// <returns>Details of the device</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Device> Device_GetOneAsync(string deviceId);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Get details of a specific device
+        /// </summary>
+        /// <returns>Details of the device</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Device> Device_GetOneAsync(string deviceId, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Update a specific device
+        /// </summary>
+        /// <returns>Device updated successfully</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Device> Device_UpdateAsync(string deviceId, UpdateDeviceRequest body);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Update a specific device
+        /// </summary>
+        /// <returns>Device updated successfully</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Device> Device_UpdateAsync(string deviceId, UpdateDeviceRequest body, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Delete a specific device
+        /// </summary>
+        /// <returns>Device deleted successfully</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task Device_DeleteAsync(string deviceId);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Delete a specific device
+        /// </summary>
+        /// <returns>Device deleted successfully</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task Device_DeleteAsync(string deviceId, System.Threading.CancellationToken cancellationToken);
 
     }
 
@@ -206,6 +671,213 @@ namespace StorageManager.Client.Contracts
         /// <summary>
         /// The updated description of the site
         /// </summary>
+
+        [System.Text.Json.Serialization.JsonPropertyName("description")]
+        public string Description { get; set; }
+
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
+
+        [System.Text.Json.Serialization.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
+            set { _additionalProperties = value; }
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class Area
+    {
+
+        [System.Text.Json.Serialization.JsonPropertyName("id")]
+        public string Id { get; set; }
+
+        [System.Text.Json.Serialization.JsonPropertyName("name")]
+        public string Name { get; set; }
+
+        [System.Text.Json.Serialization.JsonPropertyName("description")]
+        public string Description { get; set; }
+
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
+
+        [System.Text.Json.Serialization.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
+            set { _additionalProperties = value; }
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class CreateAreaRequest
+    {
+
+        [System.Text.Json.Serialization.JsonPropertyName("name")]
+        public string Name { get; set; }
+
+        [System.Text.Json.Serialization.JsonPropertyName("description")]
+        public string Description { get; set; }
+
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
+
+        [System.Text.Json.Serialization.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
+            set { _additionalProperties = value; }
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class UpdateAreaRequest
+    {
+
+        [System.Text.Json.Serialization.JsonPropertyName("name")]
+        public string Name { get; set; }
+
+        [System.Text.Json.Serialization.JsonPropertyName("description")]
+        public string Description { get; set; }
+
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
+
+        [System.Text.Json.Serialization.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
+            set { _additionalProperties = value; }
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class Device
+    {
+
+        [System.Text.Json.Serialization.JsonPropertyName("id")]
+        public string Id { get; set; }
+
+        [System.Text.Json.Serialization.JsonPropertyName("name")]
+        public string Name { get; set; }
+
+        [System.Text.Json.Serialization.JsonPropertyName("type")]
+        public string Type { get; set; }
+
+        [System.Text.Json.Serialization.JsonPropertyName("description")]
+        public string Description { get; set; }
+
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
+
+        [System.Text.Json.Serialization.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
+            set { _additionalProperties = value; }
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class CreateDeviceRequest
+    {
+
+        [System.Text.Json.Serialization.JsonPropertyName("name")]
+        public string Name { get; set; }
+
+        [System.Text.Json.Serialization.JsonPropertyName("type")]
+        public string Type { get; set; }
+
+        [System.Text.Json.Serialization.JsonPropertyName("description")]
+        public string Description { get; set; }
+
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
+
+        [System.Text.Json.Serialization.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
+            set { _additionalProperties = value; }
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class UpdateDeviceRequest
+    {
+
+        [System.Text.Json.Serialization.JsonPropertyName("name")]
+        public string Name { get; set; }
+
+        [System.Text.Json.Serialization.JsonPropertyName("type")]
+        public string Type { get; set; }
+
+        [System.Text.Json.Serialization.JsonPropertyName("description")]
+        public string Description { get; set; }
+
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
+
+        [System.Text.Json.Serialization.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
+            set { _additionalProperties = value; }
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class Module
+    {
+
+        [System.Text.Json.Serialization.JsonPropertyName("id")]
+        public string Id { get; set; }
+
+        [System.Text.Json.Serialization.JsonPropertyName("name")]
+        public string Name { get; set; }
+
+        [System.Text.Json.Serialization.JsonPropertyName("description")]
+        public string Description { get; set; }
+
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
+
+        [System.Text.Json.Serialization.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
+            set { _additionalProperties = value; }
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class CreateModuleRequest
+    {
+
+        [System.Text.Json.Serialization.JsonPropertyName("name")]
+        public string Name { get; set; }
+
+        [System.Text.Json.Serialization.JsonPropertyName("description")]
+        public string Description { get; set; }
+
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
+
+        [System.Text.Json.Serialization.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
+            set { _additionalProperties = value; }
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class UpdateModuleRequest
+    {
+
+        [System.Text.Json.Serialization.JsonPropertyName("name")]
+        public string Name { get; set; }
 
         [System.Text.Json.Serialization.JsonPropertyName("description")]
         public string Description { get; set; }

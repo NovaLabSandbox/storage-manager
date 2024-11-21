@@ -18,8 +18,8 @@
       "generateModelValidationAttributes": false,
       "routeNamingStrategy": "OperationId",
       "basePath": null,
-      "className": "StorageManager",
-      "operationGenerationMode": "MultipleClientsFromOperationId",
+      //"className": "StorageManager",
+      "operationGenerationMode": "MultipleClientsFromFirstTagAndOperationId",
       "additionalNamespaceUsages": [
         "StorageManager.Core.Http",
         "StorageManager.Client.Contracts"

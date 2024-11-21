@@ -1,0 +1,32 @@
+﻿@using Fluxor.Blazor.Web.Components
+@using StorageManager.Client.Contracts
+
+@inherits FluxorComponent
+
+@if (_siteState?.Value != null)
+{
+    <Table TItem="Site" DataSource="@_siteState.Value.Sites" Loading=@_siteState.Value.SiteIsLoading Bordered HidePagination AutoHeight PageSize="100" Responsive>
+        <PropertyColumn Property="c => c.Name">
+            <a href="/site/@context.Id">@context.Name</a>
+        </PropertyColumn>
+        <PropertyColumn Property="c => c.Description">
+            @context.Description
+        </PropertyColumn>
+
+        <PropertyColumn Property="c => c.NumberOfDevices" Title="Device(s)">
+            @context.NumberOfDevices
+        </PropertyColumn>
+
+        <PropertyColumn Property="c => c.NumberOfAreas" Title="Area(s)">
+            @context.NumberOfAreas
+        </PropertyColumn>
+
+        <PropertyColumn Property="c => c.NumberOfModules" Title="Module(s)">
+            @context.NumberOfModules
+        </PropertyColumn>
+    </Table>
+}
+else
+{
+    <SkeletonElement Active="true"></SkeletonElement>
+}
