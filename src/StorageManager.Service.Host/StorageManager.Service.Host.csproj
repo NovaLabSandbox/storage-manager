@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UserSecretsId>fa7ee972-e2b9-4755-9fd9-ff186281781f</UserSecretsId>
+		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+		<DockerfileContext>..\..</DockerfileContext>
+	</PropertyGroup>
+
+
+	<Target Name="OpenApiClient" AfterTargets="Build" Condition="'$(Configuration)' == 'Debug'">
+		<Exec Command="$(NSwagExe_Net80) run nswag.json" />
+	</Target>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.0" />
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
+		<PackageReference Include="NSwag.MSBuild" Version="14.1.0">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="Controllers\" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\StorageManager.Application\StorageManager.Application.csproj" />
+		<ProjectReference Include="..\StorageManager.Aspire.ServiceDefaults\StorageManager.Aspire.ServiceDefaults.csproj" />
+		<ProjectReference Include="..\StorageManager.Client\StorageManager.Client.csproj" />
+		<ProjectReference Include="..\StorageManager.Core\StorageManager.Core.csproj" />
+	</ItemGroup>
+
+</Project>

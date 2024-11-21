@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.4.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\StorageManager.Client\StorageManager.Client.csproj" />
+    <ProjectReference Include="..\StorageManager.Core\StorageManager.Core.csproj" />
+    <ProjectReference Include="..\StorageManager.Domain\StorageManager.Domain.csproj" />
+    <ProjectReference Include="..\StorageManager.Infrastructure\StorageManager.Infrastructure.csproj" />
+    <ProjectReference Include="..\StorageManager.Shared\StorageManager.Shared.csproj" />
+  </ItemGroup>
+
+</Project>
