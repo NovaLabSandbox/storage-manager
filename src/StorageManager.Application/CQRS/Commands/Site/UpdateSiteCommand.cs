@@ -5,12 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 using MediatR;
+
 using OneOf;
 
 using StorageManager.Client.Contracts;
 using StorageManager.Core.Results;
 
-namespace StorageManager.Application.CQRS.Commands
+namespace StorageManager.Application.CQRS.Commands.Site
 {
     public class UpdateSiteCommand : IRequest<OneOf<bool, NotFoundResult, ForbiddenResult, BusinessErrorResult>>
     {

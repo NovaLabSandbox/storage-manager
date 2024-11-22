@@ -5,7 +5,7 @@ using OneOf;
 using StorageManager.Client.Contracts;
 using StorageManager.Core.Results;
 
-namespace StorageManager.Application.CQRS.Commands
+namespace StorageManager.Application.CQRS.Commands.Site
 {
     public class CreateSiteCommand : IRequest<OneOf<CreatedResult<SiteResponse>, NotFoundResult, ForbiddenResult, BusinessErrorResult>>
     {

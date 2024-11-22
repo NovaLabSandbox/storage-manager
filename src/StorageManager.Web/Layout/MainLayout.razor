@@ -8,7 +8,7 @@
     <Layout>
         @if (_siteState.Value.SelectedSite != null)
         {
-         <Sider Width="200" Class="site-layout-background">
+         <Sider Width="200">
             <Menu Mode="MenuMode.Inline"
                   Theme=MenuTheme.Dark
                   Style="height: 100%; border-right: 0;">
@@ -63,7 +63,7 @@
                 <BreadcrumbItem>List</BreadcrumbItem>
                 <BreadcrumbItem>App</BreadcrumbItem>
             </Breadcrumb>
-            <Content Class="site-layout-background" Style=" padding: 24px; margin: 0; min-height: 280px;">
+            <Content Class="site-layout-background" Style=" padding: 24px; margin: 0; min-height: calc(100vh - 140px);">
                 @Body
             </Content>
         </Layout>
