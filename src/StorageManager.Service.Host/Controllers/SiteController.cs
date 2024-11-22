@@ -2,8 +2,8 @@
 
 using Microsoft.AspNetCore.Mvc;
 
-using StorageManager.Application.CQRS.Commands;
-using StorageManager.Application.CQRS.Queries;
+using StorageManager.Application.CQRS.Commands.Site;
+using StorageManager.Application.CQRS.Queries.Site;
 using StorageManager.Client.Contracts;
 
 
@@ -18,7 +18,7 @@ namespace StorageManager.Service.Host.Controllers
 
         [Produces("application/json")]
         public override async Task<ActionResult<SiteResponse>> GetSiteById(string siteId)
-            => Do(await _mediator.Send(new GetSiteQuery(siteId)));
+            => Do(await _mediator.Send(new GetSiteByIdQuery(siteId)));
 
         [Produces("application/json")]
         public override async Task<ActionResult<SiteResponse>> CreateSite([FromBody] SiteCreateRequest body)

@@ -4,13 +4,13 @@ using MediatR;
 
 using OneOf;
 
-using StorageManager.Application.CQRS.Queries;
+using StorageManager.Application.CQRS.Queries.Site;
 using StorageManager.Application.Interfaces;
 using StorageManager.Client.Contracts;
 using StorageManager.Core.Results;
 using StorageManager.Infrastructure.Interfaces;
 
-namespace StorageManager.Application.CQRS.QueryHandlers
+namespace StorageManager.Application.CQRS.QueryHandlers.Site
 {
     public class GetAllSitesQueryHandler(ISiteRepository _siteRepository, IMapper _mapper, ICacheService _cacheService)
         : IRequestHandler<GetAllSitesQuery, OneOf<List<SiteResponse>, NotFoundResult, ForbiddenResult, BusinessErrorResult>>
