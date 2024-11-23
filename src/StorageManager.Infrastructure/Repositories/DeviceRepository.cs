@@ -54,5 +54,10 @@ namespace StorageManager.Infrastructure.Repositories
         {
             return await _deviceCollection.Find(d => d.ModuleIds.Contains(moduleId)).ToListAsync();
         }
+
+        public Task<List<Device>> GetAllDevices()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

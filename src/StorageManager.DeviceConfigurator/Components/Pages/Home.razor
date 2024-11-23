@@ -1,0 +1,12 @@
+﻿@page "/"
+@using Plugin.MauiWifiManager.Abstractions
+
+<AntList Bordered DataSource="@networks" TItem="NetworkData">
+    <ChildContent Context="item">
+        <ListItem OnClick="@(() => Connect(item))">
+            @item.Ssid (@item.SignalStrength)
+        </ListItem>
+    </ChildContent>
+</AntList>
+<Button OnClick=Scan>SCAN</Button>
+<Button OnClick=DeviceInfos>DeviceInfos</Button>

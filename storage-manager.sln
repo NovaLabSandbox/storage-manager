@@ -42,6 +42,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StorageManager.Infrastructu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StorageManager.Client", "src\StorageManager.Client\StorageManager.Client.csproj", "{C768C11A-7AE7-4EF1-B246-F0795403D869}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StorageManager.DeviceConfigurator", "src\StorageManager.DeviceConfigurator\StorageManager.DeviceConfigurator.csproj", "{6D95A46E-A00C-4B44-9E31-4E0F8EFCD08A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -96,6 +98,11 @@ Global
 		{C768C11A-7AE7-4EF1-B246-F0795403D869}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C768C11A-7AE7-4EF1-B246-F0795403D869}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C768C11A-7AE7-4EF1-B246-F0795403D869}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D95A46E-A00C-4B44-9E31-4E0F8EFCD08A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D95A46E-A00C-4B44-9E31-4E0F8EFCD08A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D95A46E-A00C-4B44-9E31-4E0F8EFCD08A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{6D95A46E-A00C-4B44-9E31-4E0F8EFCD08A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D95A46E-A00C-4B44-9E31-4E0F8EFCD08A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -117,6 +124,7 @@ Global
 		{1FA2A599-E193-46D1-84C4-5D1470739216} = {D11EE3D4-B588-44DA-923B-ED8EE63A8B7E}
 		{89AA2780-A135-4604-93C7-C47252026CAE} = {58B3E2DF-D152-41C7-A184-1F354DDD2189}
 		{C768C11A-7AE7-4EF1-B246-F0795403D869} = {58B3E2DF-D152-41C7-A184-1F354DDD2189}
+		{6D95A46E-A00C-4B44-9E31-4E0F8EFCD08A} = {7C65EF82-628B-49FD-9A5C-6B701C595E0A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C736020C-97C1-42DF-8FDA-059540AB3EA6}
